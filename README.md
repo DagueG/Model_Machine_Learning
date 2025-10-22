@@ -17,3 +17,10 @@ uv init --python 3.11
 
 # Installer les dépendances
 uv sync
+```
+## 🚀 Lancer le projet localement
+
+### Démarrer le serveur FastAPI
+```bash
+uv run uvicorn app.main:app --reload
+```
