@@ -1,0 +1,25 @@
+[project]
+name = "model-machine-learning"
+version = "0.1.0"
+description = "Déploiement d'un modèle de Machine Learning"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.119.1",
+    "httpx>=0.28.1",
+    "joblib>=1.5.2",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "psycopg[binary]>=3.2.11",
+    "pydantic>=2.12.3",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "python-dotenv>=1.1.1",
+    "scikit-learn>=1.7.2",
+    "sqlalchemy>=2.0.44",
+    "uvicorn>=0.38.0",
+]
+
+[tool.pytest.ini_options]
+addopts = "-v --cov=app --cov-report=term-missing"
+testpaths = ["tests"]

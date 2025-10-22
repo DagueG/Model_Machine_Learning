@@ -8,3 +8,12 @@ Déployer un modèle de ML derrière une API FastAPI.
 - FIX: correction de bug/problème
 - DOCS: documentation
 - DEL: suppression volontaire
+
+### Installation
+
+```bash
+# Créer l'environnement
+uv init --python 3.11
+
+# Installer les dépendances
+uv sync
