@@ -1,3 +1,4 @@
+![CI](https://github.com/DagueG/Model_Machine_Learning/actions/workflows/ci.yml/badge.svg)
 # Futurisys ML Deploy
 
 ## 👇 Objectif
