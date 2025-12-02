@@ -1,5 +1,5 @@
 ![CI](https://github.com/DagueG/Model_Machine_Learning/actions/workflows/ci.yml/badge.svg)
-# Futurisys ML Deploy
+# Futurisys ML Deploy🚀
 
 ## 👇 Objectif
 Déployer un modèle de ML derrière une API FastAPI.
