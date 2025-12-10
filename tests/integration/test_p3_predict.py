@@ -1,7 +1,30 @@
 import pytest
 from fastapi.testclient import TestClient
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from app.main import app
+from app.core.database import Base, get_db
+from app.models import EnergyPrediction
 
+# Use in-memory SQLite for tests
+SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
+)
+TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base.metadata.create_all(bind=engine)
+
+
+def override_get_db():
+    try:
+        db = TestingSessionLocal()
+        yield db
+    finally:
+        db.close()
+
+
+app.dependency_overrides[get_db] = override_get_db
 client = TestClient(app)
 
 
@@ -46,3 +69,66 @@ def test_p3_predict_success():
     # La réponse doit contenir une prédiction
     assert "prediction" in data
     assert isinstance(data["prediction"], float)
+
+
+def test_prediction_logged_to_database():
+    """Test that predictions are logged to the database."""
+    # Clear database before test
+    db = TestingSessionLocal()
+    db.query(EnergyPrediction).delete()
+    db.commit()
+    db.close()
+    
+    payload = {
+        "BuildingType": "Residential",
+        "PrimaryPropertyType": "Apartment",
+        "ZipCode": 98102,
+        "CouncilDistrictCode": 5,
+        "Neighborhood": "Capitol Hill",
+        "Latitude": 47.62,
+        "Longitude": -122.32,
+        "YearBuilt": 2005,
+        "NumberofBuildings": 2,
+        "NumberofFloors": 5,
+        "PropertyGFATotal": 50000,
+        "PropertyGFAParking": 10000,
+        "PropertyGFABuildings": 40000,
+        "ListOfAllPropertyUseTypes": "Residential",
+        "LargestPropertyUseType": "Residential",
+        "LargestPropertyUseTypeGFA": 40000,
+        "SecondLargestPropertyUseType": None,
+        "SecondLargestPropertyUseTypeGFA": None,
+        "ThirdLargestPropertyUseType": None,
+        "ThirdLargestPropertyUseTypeGFA": None,
+        "YearsENERGYSTARCertified": 3,
+        "Outlier": "No",
+        "BuildingAge": 19,
+        "SurfacePerFloor": 8000,
+        "IsMultiUse": False,
+        "LatZone": 47,
+        "LonZone": 122
+    }
+
+    # Make prediction
+    response = client.post("/api/p3/predict", json=payload)
+    assert response.status_code == 200
+
+    # Verify it was saved in database
+    db = TestingSessionLocal()
+    predictions = db.query(EnergyPrediction).all()
+    assert len(predictions) > 0
+    prediction = predictions[-1]  # Get the last one
+    assert prediction.building_type == "Residential"
+    assert prediction.prediction > 0
+    db.close()
+
+
+def test_get_prediction_history():
+    """Test retrieving prediction history."""
+    response = client.get("/api/p3/history")
+    assert response.status_code == 200
+    data = response.json()
+    assert "total" in data
+    assert "predictions" in data
+    assert isinstance(data["predictions"], list)
+

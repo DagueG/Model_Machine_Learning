@@ -15,10 +15,14 @@ Déployer un modèle de ML (Random Forest) derrière une API FastAPI pour fourni
 Model_Machine_Learning/
 ├── app/
 │   ├── main.py                 # Application FastAPI principale avec tous les endpoints
+│   ├── models.py               # Modèles SQLAlchemy pour la base de données
 │   ├── schemas/
 │   │   └── p3_request.py       # Modèles Pydantic pour la validation des requêtes
 │   ├── services/
 │   │   └── p3_model.py         # Classe de service pour charger et utiliser le modèle ML
+│   ├── core/
+│   │   ├── database.py         # Configuration SQLAlchemy et session management
+│   │   └── __init__.py
 │   └── __pycache__/
 ├── models/
 │   └── model_p3.joblib         # Modèle ML sérialisé (Random Forest)
@@ -26,8 +30,12 @@ Model_Machine_Learning/
 │   ├── unit/
 │   │   └── test_health.py      # Tests unitaires pour l'endpoint /health
 │   ├── integration/
-│   │   └── test_p3_predict.py  # Tests d'intégration pour l'endpoint /predict
+│   │   └── test_p3_predict.py  # Tests d'intégration pour l'endpoint /predict et DB
 │   └── __pycache__/
+├── docker-compose.yml          # Configuration PostgreSQL avec Docker
+├── create_db.py                # Script d'initialisation de la base de données
+├── .env                        # Variables d'environnement (local)
+├── .env.example                # Template des variables d'environnement
 ├── pyproject.toml              # Configuration du projet et dépendances
 └── README.md                   # Documentation du projet
 ```
@@ -39,15 +47,35 @@ Model_Machine_Learning/
 ### Prérequis
 - Python >= 3.11
 - [uv](https://docs.astral.sh/uv/) (gestionnaire de paquets Python)
+- Docker & Docker Compose (pour PostgreSQL)
 
 ### Étapes d'installation
 
 ```bash
-# Initialiser l'environnement virtuel avec Python 3.11
+# 1. Initialiser l'environnement virtuel avec Python 3.11
 uv init --python 3.11
 
-# Installer toutes les dépendances du projet
+# 2. Installer toutes les dépendances du projet
 uv sync
+
+# 3. Copier le fichier .env
+cp .env.example .env
+
+# 4. Démarrer PostgreSQL avec Docker
+docker-compose up -d
+
+# 5. Initialiser la base de données
+uv run python create_db.py
+```
+
+### Vérification du statut PostgreSQL
+```bash
+docker-compose ps
+```
+
+### Arrêter PostgreSQL
+```bash
+docker-compose down
 ```
 
 ---
@@ -131,6 +159,124 @@ POST /api/p3/predict
 
 ---
 
+### 3. **Récupérer l'historique des prédictions**
+```http
+GET /api/p3/history?skip=0&limit=100
+```
+
+**Paramètres de query**:
+- `skip` (optional): Nombre d'enregistrements à ignorer (défaut: 0)
+- `limit` (optional): Nombre maximal d'enregistrements à retourner (défaut: 100)
+
+**Réponse réussie (200)**:
+```json
+{
+  "total": 42,
+  "predictions": [
+    {
+      "id": 1,
+      "prediction": 1250.5,
+      "building_type": "Commercial",
+      "created_at": "2025-12-10T12:30:45.123456"
+    },
+    ...
+  ]
+}
+```
+
+---
+
+### 4. **Récupérer une prédiction spécifique**
+```http
+GET /api/p3/prediction/{prediction_id}
+```
+
+**Réponse réussie (200)**:
+```json
+{
+  "id": 1,
+  "prediction": 1250.5,
+  "building_type": "Commercial",
+  "created_at": "2025-12-10T12:30:45.123456"
+}
+```
+
+---
+
+## 🗄️ Base de Données
+
+### Architecture
+
+La base de données PostgreSQL enregistre **automatiquement** toutes les entrées et sorties du modèle ML.
+
+#### Table: `energy_predictions`
+
+| Colonne | Type | Description |
+|---------|------|-------------|
+| `id` | INTEGER | Clé primaire auto-incrémentée |
+| `building_type` | VARCHAR | Type de bâtiment |
+| `primary_property_type` | VARCHAR | Type de propriété principal |
+| `zip_code` | INTEGER | Code postal |
+| `council_district_code` | INTEGER | Code district conseil |
+| `neighborhood` | VARCHAR | Quartier |
+| `latitude` | FLOAT | Latitude GPS |
+| `longitude` | FLOAT | Longitude GPS |
+| `year_built` | INTEGER | Année de construction |
+| `number_of_buildings` | INTEGER | Nombre de bâtiments |
+| `number_of_floors` | INTEGER | Nombre d'étages |
+| `property_gfa_total` | FLOAT | Surface GFA totale |
+| `property_gfa_parking` | FLOAT | Surface parking GFA |
+| `property_gfa_buildings` | FLOAT | Surface bâtiments GFA |
+| ... | ... | *25+ champs d'entrée* |
+| `prediction` | FLOAT | **Résultat de la prédiction** |
+| `created_at` | TIMESTAMP | Date/heure de création |
+
+### Schéma UML Simplifié
+
+```
+┌─────────────────────────┐
+│   EnergyPrediction      │
+├─────────────────────────┤
+│ id (PK)                 │
+│ building_type           │
+│ primary_property_type   │
+│ zip_code                │
+│ council_district_code   │
+│ neighborhood            │
+│ latitude                │
+│ longitude               │
+│ ... (25+ input fields)  │
+│ prediction (OUTPUT) ⭐   │
+│ created_at (TIMESTAMP)  │
+└─────────────────────────┘
+```
+
+### Gestion de la base de données
+
+**Créer les tables** (automatique au premier démarrage):
+```bash
+uv run python create_db.py
+```
+
+**Réinitialiser la base de données** (⚠️ supprime toutes les données):
+```bash
+uv run python create_db.py drop
+```
+
+**Interroger les données directement**:
+```python
+from app.core.database import SessionLocal
+from app.models import EnergyPrediction
+
+db = SessionLocal()
+predictions = db.query(EnergyPrediction).all()
+for pred in predictions:
+    print(f"ID: {pred.id}, Prédiction: {pred.prediction}, Date: {pred.created_at}")
+db.close()
+```
+
+---
+
 ## 🔧 Architecture et Composants
 
 ### `app/main.py`
@@ -138,12 +284,28 @@ POST /api/p3/predict
 - **Contient**: 
   - Configuration de l'application FastAPI
   - Tous les endpoints de l'API
-  - Logique de traitement des requêtes
+  - Logique de prédiction et enregistrement en DB
+  - Endpoints de consultation de l'historique
+
+### `app/models.py`
+- **Rôle**: Modèles SQLAlchemy pour la persistance
+- **Contient**: 
+  - `EnergyPrediction`: Modèle ORM représentant la table `energy_predictions`
+  - Tous les champs d'entrée du ML + résultat de prédiction
+
+### `app/core/database.py`
+- **Rôle**: Configuration de la base de données
+- **Contient**: 
+  - Configuration SQLAlchemy + psycopg3
+  - SessionLocal factory
+  - Dépendance `get_db()` pour l'injection dans les endpoints
 
 ### `app/schemas/p3_request.py`
 - **Rôle**: Définition des modèles de données
 - **Contient**: 
   - `EnergyRequest`: Modèle Pydantic pour valider les requêtes de prédiction
+  - `PredictionResponse`: Modèle de réponse pour une prédiction unique
+  - `PredictionHistoryResponse`: Modèle de réponse pour l'historique
   - 25+ champs pour décrire les caractéristiques d'un bâtiment
 
 ### `app/services/p3_model.py`
@@ -157,6 +319,20 @@ POST /api/p3/predict
 - **Format**: Fichier binaire sérialisé (joblib)
 - **Contenu**: Modèle Random Forest entraîné
 - **Utilisation**: Chargé au moment de la première requête
+
+### `docker-compose.yml`
+- **Rôle**: Configuration de PostgreSQL en conteneur
+- **Contient**: 
+  - Service PostgreSQL 16 Alpine
+  - Configuration des credentials
+  - Volumes persistants pour les données
+  - Health check automatique
+
+### `create_db.py`
+- **Rôle**: Script d'initialisation de la base de données
+- **Utilisation**: 
+  - `uv run python create_db.py` → Crée les tables
+  - `uv run python create_db.py drop` → Supprime les tables
 
 ---
 
@@ -195,6 +371,10 @@ uv run pytest --cov=app --cov-report=html
 | `scikit-learn` | >=1.7.2 | Modèle ML et utilitaires |
 | `joblib` | >=1.5.2 | Sérialisation du modèle |
 | `pytest` | >=8.4.2 | Framework de test |
+| `pytest-cov` | >=7.0.0 | Couverture de tests |
+| `sqlalchemy` | >=2.0.44 | ORM pour la base de données |
+| `psycopg[binary]` | >=3.2.11 | Driver PostgreSQL Python |
+| `python-dotenv` | >=1.1.1 | Gestion des variables d'environnement |
 
 ---
 
@@ -227,7 +407,7 @@ LOG_LEVEL=INFO
 ## 📊 Flux de Prédiction
 
 ```
-Requête HTTP POST
+Requête HTTP POST /api/p3/predict
     ↓
 Validation Pydantic (EnergyRequest)
     ↓
@@ -237,10 +417,19 @@ Conversion en DataFrame pandas
     ↓
 Chargement du modèle (singleton)
     ↓
-Prédiction
+Prédiction ML
     ↓
-Réponse JSON
+Enregistrement en base de données PostgreSQL ⭐
+    ↓
+Réponse JSON {"prediction": value}
 ```
+
+### Enregistrement des données
+
+Chaque prédiction est automatiquement enregistrée dans la table `energy_predictions` avec:
+- ✅ Tous les champs d'entrée
+- ✅ Le résultat de la prédiction
+- ✅ L'horodatage exact (UTC)
 
 ---
 
