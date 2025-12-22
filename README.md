@@ -434,12 +434,64 @@ Chaque prédiction est automatiquement enregistrée dans la table `energy_predic
 
 ## 🚀 Déploiement
 
-Pour déployer cette API en production, considérez :
+### Déploiement sur Hugging Face Spaces
 
-1. **Conteneurisation**: Docker
+Cette application est prête à être déployée sur [Hugging Face Spaces](https://huggingface.co/spaces).
+
+#### Étapes:
+
+1. **Créer un nouvel Space sur Hugging Face**
+   - Aller sur https://huggingface.co/new-space
+   - Sélectionner **Docker** comme runtime
+   - Nommer l'espace: `model-machine-learning`
+   - Rendre public ou privé selon vos besoins
+
+2. **Connecter votre dépôt GitHub**
+   - Dans les paramètres du Space, activer la synchronisation GitHub
+   - Sélectionner votre dépôt `Model_Machine_Learning`
+   - Sélectionner la branche `main`
+
+3. **Configuration automatique**
+   - HF Spaces détectera automatiquement le `Dockerfile`
+   - Construira et déploiera l'image Docker
+   - L'API sera accessible via `https://huggingface.co/spaces/[username]/model-machine-learning`
+
+#### Variables d'environnement
+
+Laissez `DATABASE_URL` vide pour utiliser SQLite automatiquement sur HF Spaces:
+
+```
+# Database: Auto-switch
+# - Si DATABASE_URL vide → SQLite (HF Spaces)
+# - Si DATABASE_URL défini → PostgreSQL (local)
+```
+
+#### Points importants:
+
+- ✅ **Base de données**: SQLite (`/tmp/predictions.db`) - pas besoin de PostgreSQL sur HF
+- ✅ **Port**: 7860 (standard HF Spaces)
+- ✅ **Documentation**: Swagger UI accessible à `/docs`
+- ⚠️ **Données persistantes**: Les prédictions sont sauvegardées tant que le Space tourne
+
+### Déploiement local avec Docker
+
+```bash
+# Builder l'image Docker
+docker build -t model-api .
+
+# Lancer le conteneur
+docker run -p 8000:7860 model-api
+```
+
+### Autres options de déploiement
+
+Pour un déploiement en production:
+
+1. **Conteneurisation**: Docker ✅ (configuré)
 2. **Orchestration**: Kubernetes
 3. **CI/CD**: GitHub Actions (configuré dans `.github/workflows/`)
 4. **Monitoring**: Application Performance Monitoring (APM)
+5. **Base de données persistante**: PostgreSQL (remplacer DATABASE_URL)
 
 ---
 
