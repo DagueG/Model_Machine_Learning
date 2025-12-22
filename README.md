@@ -6,7 +6,6 @@ Une API FastAPI pour le déploiement et la prédiction d'un modèle de Machine L
 
 ## 📋 Objectif
 Déployer un modèle de ML (Random Forest) derrière une API FastAPI pour fournir des prédictions en temps réel sur la consommation énergétique des propriétés.
-
 ---
 
 ## 📁 Structure du Projet
