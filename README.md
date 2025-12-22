@@ -1,3 +1,12 @@
+---
+title: Energy Consumption ML Model
+emoji: 🏢
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 ![CI](https://github.com/DagueG/Model_Machine_Learning/actions/workflows/ci.yml/badge.svg)
 
 # Futurisys ML Deploy 🚀
