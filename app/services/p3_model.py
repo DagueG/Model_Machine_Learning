@@ -5,7 +5,7 @@ import urllib.request
 import os
 
 MODEL_PATH = Path("models/model_p3.joblib")
-MODEL_URL = "https://raw.githubusercontent.com/DagueG/Model_Machine_Learning/main/models/model_p3.joblib"
+MODEL_URL = "https://github.com/DagueG/Model_Machine_Learning/releases/download/v1.0.0-model/model_p3.joblib"
 
 class EnergyModel:
     _model = None
