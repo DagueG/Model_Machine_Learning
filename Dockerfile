@@ -13,10 +13,10 @@ COPY pyproject.toml uv.lock* ./
 RUN pip install uv && uv pip install --system -r requirements.txt 2>/dev/null || \
     (pip install fastapi uvicorn pydantic python-dotenv joblib scikit-learn pandas sqlalchemy)
 
-# Copy application
+# Copy application (model will be downloaded at runtime)
 COPY app ./app
-COPY models ./models
 COPY create_db.py .
+RUN mkdir -p models
 
 # Initialize database
 RUN python create_db.py
