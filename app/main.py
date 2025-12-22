@@ -9,6 +9,16 @@ from app.models import EnergyPrediction
 app = FastAPI(title="Futurisys ML API", version="0.1.0")
 
 
+@app.get("/")
+def root():
+    return {
+        "message": "Futurisys ML API",
+        "version": "0.1.0",
+        "docs": "/docs",
+        "health": "/health"
+    }
+
+
 @app.get("/health")
 def health_check():
     return {"status": "ok", "message": "API en ligne 🚀"}
