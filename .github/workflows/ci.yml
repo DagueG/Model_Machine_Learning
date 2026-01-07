@@ -60,9 +60,11 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
-          # Remove large model files from HF repo if they exist
           git remote add hf https://DagueGG:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/DagueGG/model-machine-learning
-          git fetch hf main 2>/dev/null || true
           
-          # Remove models directory from HF history (force push)
+          # Try to clean models/ from HF history
+          git fetch hf main 2>/dev/null || true
+          git filter-branch --tree-filter 'rm -rf models/' -f -- main 2>/dev/null || true
+          
+          # Force push the cleaned history
           git push hf main --force
