@@ -9,3 +9,5 @@ def test_health_check():
     assert r.status_code == 200
     data = r.json()
     assert data["status"] == "ok"
+    assert "model_loaded" in data
+    assert data["model_loaded"] is True

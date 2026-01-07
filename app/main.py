@@ -21,7 +21,12 @@ def root():
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok", "message": "API en ligne 🚀"}
+    try:
+        # Validate model can be loaded
+        EnergyModel.load()
+        return {"status": "ok", "message": "API en ligne 🚀", "model_loaded": True}
+    except Exception as e:
+        return {"status": "error", "message": f"Impossible de charger le modèle: {str(e)}", "model_loaded": False}
 
 
 @app.post("/api/p3/predict")
