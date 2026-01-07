@@ -27,3 +27,26 @@ jobs:
 
       - name: Run tests
         run: uv run pytest -v
+
+      - name: Push model to Hugging Face
+        if: github.ref == 'refs/heads/main' && success()
+        run: |
+          pip install huggingface-hub
+          python -c "
+          from huggingface_hub import upload_file
+          import os
+          
+          token = '${{ secrets.HF_TOKEN }}'
+          model_path = 'models/model_p3.joblib'
+          
+          if os.path.exists(model_path):
+            upload_file(
+              path_or_fileobj=model_path,
+              path_in_repo='model_p3.joblib',
+              repo_id='DagueGG/model-machine-learning',
+              token=token
+            )
+            print('✅ Model uploaded to Hugging Face')
+          else:
+            print('⚠️ Model file not found')
+          "
