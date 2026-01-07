@@ -59,12 +59,5 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          
-          # Create a temporary branch without models/ directory
-          git checkout -b hf-sync
-          git rm -r models/ --cached
-          git commit --allow-empty -m "Remove models for HF sync"
-          
-          # Push to HF space
           git remote add hf https://DagueGG:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/DagueGG/model-machine-learning
-          git push hf hf-sync:main --force
+          git push hf main --force
