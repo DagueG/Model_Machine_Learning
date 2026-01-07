@@ -59,5 +59,9 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          
+          # Remove models directory to avoid pushing large files
+          rm -rf models/
+          
           git remote add hf https://DagueGG:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/DagueGG/model-machine-learning
           git push hf main:main -f
