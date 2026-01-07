@@ -53,18 +53,3 @@ jobs:
           else:
             print('⚠️ Model file not found')
           "
-
-      - name: Sync code to Hugging Face Space
-        if: github.ref == 'refs/heads/main' && success()
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          
-          git remote add hf https://DagueGG:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/DagueGG/model-machine-learning
-          
-          # Try to clean models/ from HF history
-          git fetch hf main 2>/dev/null || true
-          git filter-branch --tree-filter 'rm -rf models/' -f -- main 2>/dev/null || true
-          
-          # Force push the cleaned history
-          git push hf main --force
