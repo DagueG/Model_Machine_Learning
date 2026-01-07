@@ -51,3 +51,9 @@ jobs:
           else:
             print('⚠️ Model file not found')
           "
+
+      - name: Sync code to Hugging Face Space
+        if: github.ref == 'refs/heads/main' && success()
+        run: |
+          git remote add hf https://DagueGG:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/DagueGG/model-machine-learning
+          git push hf main --force
