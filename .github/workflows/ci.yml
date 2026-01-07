@@ -44,9 +44,10 @@ jobs:
               path_or_fileobj=model_path,
               path_in_repo='model_p3.joblib',
               repo_id='DagueGG/model-machine-learning',
+              repo_type='space',
               token=token
             )
-            print('✅ Model uploaded to Hugging Face')
+            print('✅ Model uploaded to Hugging Face Space')
           else:
             print('⚠️ Model file not found')
           "
