@@ -60,7 +60,8 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
-          # Remove models directory to avoid pushing large files
+          # Clean all untracked files including models
+          git clean -ffd
           rm -rf models/
           
           git remote add hf https://DagueGG:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/DagueGG/model-machine-learning
