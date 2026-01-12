@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 COPY pyproject.toml uv.lock* ./
 
 # Install uv and dependencies from pyproject.toml
-RUN pip install uv && uv sync --system
+RUN pip install uv && uv pip sync uv.lock --system
 
 # Copy application (model will be downloaded at runtime)
 COPY app ./app
