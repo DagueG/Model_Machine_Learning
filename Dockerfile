@@ -9,9 +9,8 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements
 COPY pyproject.toml uv.lock* ./
 
-# Install uv and dependencies
-RUN pip install uv && uv pip install --system -r requirements.txt 2>/dev/null || \
-    (pip install fastapi uvicorn pydantic python-dotenv joblib scikit-learn pandas sqlalchemy)
+# Install uv and dependencies from pyproject.toml
+RUN pip install uv && uv pip install --system
 
 # Copy application (model will be downloaded at runtime)
 COPY app ./app
