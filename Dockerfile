@@ -18,7 +18,7 @@ COPY create_db.py .
 RUN mkdir -p models
 
 # Initialize database
-RUN python create_db.py
+RUN uv run create_db.py
 
 # Expose port
 EXPOSE 7860
