@@ -24,4 +24,4 @@ RUN uv run create_db.py
 EXPOSE 7860
 
 # Run FastAPI with uvicorn on port 7860 (HF Spaces standard)
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
