@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 import pandas as pd
 from app.schemas.p3_request import EnergyRequest, PredictionResponse, PredictionHistoryResponse
@@ -101,6 +101,6 @@ def get_prediction(prediction_id: int, db: Session = Depends(get_db)):
     ).first()
     
     if not prediction:
-        return {"error": "Prediction not found"}, 404
+        raise HTTPException(status_code=404, detail="Prediction not found")
     
     return prediction
