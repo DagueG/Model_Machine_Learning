@@ -10,7 +10,7 @@ class EnergyPrediction(Base):
     
     __tablename__ = "energy_predictions"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     
     # Input features (stored as JSON for flexibility)
     building_type = Column(String, nullable=False)
