@@ -3,22 +3,10 @@
 import pytest
 import pandas as pd
 from pathlib import Path
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from app.core.database import Base, get_db
-from app.models import EnergyPrediction
+from app.models import EnergyPrediction, EnergyDataset
 from app.services.p3_model import EnergyModel
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import numpy as np
-
-# In-memory SQLite for tests
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test_dataset.db"
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-Base.metadata.create_all(bind=engine)
 
 
 @pytest.fixture
@@ -68,7 +56,7 @@ def test_model_with_p3_dataset(test_data):
     print(f"   R²:   {r2:.4f}")
 
 
-def test_dataset_predictions_saved_to_db(test_data):
+def test_dataset_predictions_saved_to_db(test_data, test_db):
     """Test that dataset predictions are correctly saved to database."""
     X_test, y_test = test_data
     
@@ -85,10 +73,11 @@ def test_dataset_predictions_saved_to_db(test_data):
     predictions = np.array(predictions)
     
     # Save to test database
-    db = TestingSessionLocal()
+    db = test_db()
     
     for idx, pred in enumerate(predictions):
-        record = EnergyPrediction(
+        # First, create dataset record
+        dataset_record = EnergyDataset(
             building_type=X_sample.iloc[idx].get("BuildingType", "Unknown"),
             primary_property_type=X_sample.iloc[idx].get("PrimaryPropertyType", "Unknown"),
             zip_code=int(X_sample.iloc[idx].get("ZipCode", 0)),
@@ -116,19 +105,26 @@ def test_dataset_predictions_saved_to_db(test_data):
             is_multi_use=1 if X_sample.iloc[idx].get("IsMultiUse") == True else 0,
             lat_zone=int(X_sample.iloc[idx].get("LatZone", 0)),
             lon_zone=int(X_sample.iloc[idx].get("LonZone", 0)),
+        )
+        db.add(dataset_record)
+        db.flush()  # Get the ID
+        
+        # Then create prediction record with dataset_id
+        prediction_record = EnergyPrediction(
+            dataset_id=dataset_record.id,
             prediction=float(pred)
         )
-        db.add(record)
+        db.add(prediction_record)
     
     db.commit()
     
     # Verify all records were saved
-    saved_records = db.query(EnergyPrediction).all()
-    assert len(saved_records) >= 10, "Not all records were saved"
+    saved_predictions = db.query(EnergyPrediction).all()
+    assert len(saved_predictions) >= 10, "Not all prediction records were saved"
     
     # Verify data integrity
-    for record in saved_records[-10:]:
+    for record in saved_predictions[-10:]:
         assert record.prediction > 0, "Prediction should be positive"
-        assert record.building_type, "Building type should not be empty"
+        assert record.dataset_id > 0, "Dataset ID should be valid"
     
     db.close()
