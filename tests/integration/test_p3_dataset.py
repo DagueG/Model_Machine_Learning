@@ -107,11 +107,12 @@ def test_dataset_predictions_saved_to_db(test_data, test_db):
             lon_zone=int(X_sample.iloc[idx].get("LonZone", 0)),
         )
         db.add(dataset_record)
-        db.flush()  # Get the ID
+        db.commit()  # Commit dataset first
+        db.refresh(dataset_record)
         
-        # Then create prediction record with dataset_id
+        # Then create prediction record with the same id
         prediction_record = EnergyPrediction(
-            dataset_id=dataset_record.id,
+            id=dataset_record.id,
             prediction=float(pred)
         )
         db.add(prediction_record)
@@ -125,6 +126,6 @@ def test_dataset_predictions_saved_to_db(test_data, test_db):
     # Verify data integrity
     for record in saved_predictions[-10:]:
         assert record.prediction > 0, "Prediction should be positive"
-        assert record.dataset_id > 0, "Dataset ID should be valid"
+        assert record.id > 0, "ID should be valid"
     
     db.close()

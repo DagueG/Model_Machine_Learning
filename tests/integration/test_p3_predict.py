@@ -106,7 +106,7 @@ def test_prediction_logged_to_database(client, test_db):
     predictions = db.query(EnergyPrediction).all()
     assert len(predictions) > 0
     prediction = predictions[-1]  # Get the last one
-    assert prediction.dataset_id > 0  # Verify dataset_id exists (no longer building_type)
+    assert prediction.id > 0  # Verify id exists
     assert prediction.prediction > 0
     db.close()
 

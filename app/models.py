@@ -52,23 +52,27 @@ class EnergyDataset(Base):
 
 
 class EnergyPrediction(Base):
-    """Model for storing energy consumption predictions."""
+    """Model for storing energy consumption predictions.
+    
+    This table represents the prediction history, where:
+    - id: The ID of the dataset that was predicted on (foreign key to EnergyDataset)
+    - prediction: The predicted energy consumption value
+    - created_at: When the prediction was made
+    """
     
     __tablename__ = "energy_predictions"
 
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    
-    # Foreign key to dataset
-    dataset_id = Column(Integer, ForeignKey("energy_dataset.id"), nullable=False)
+    # The id is both the primary key and foreign key to dataset
+    id = Column(Integer, ForeignKey("energy_dataset.id"), primary_key=True, index=True)
     
     # Prediction output
     prediction = Column(Float, nullable=False)
     
     # Relationship
-    dataset = relationship("EnergyDataset", back_populates="predictions")
+    dataset = relationship("EnergyDataset", back_populates="predictions", foreign_keys=[id])
     
     # Metadata
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     
     def __repr__(self):
-        return f"<EnergyPrediction(id={self.id}, dataset_id={self.dataset_id}, prediction={self.prediction}, created_at={self.created_at})>"
+        return f"<EnergyPrediction(id={self.id}, prediction={self.prediction}, created_at={self.created_at})>"
