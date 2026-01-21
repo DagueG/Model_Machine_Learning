@@ -32,12 +32,57 @@ class EnergyRequest(BaseModel):
     LonZone: int = Field(example=1)
 
 
+class DatasetResponse(BaseModel):
+    """Response model for dataset records."""
+    id: int
+    building_type: str
+    primary_property_type: str
+    zip_code: int
+    council_district_code: int
+    neighborhood: Optional[str] = None
+    latitude: float
+    longitude: float
+    year_built: int
+    number_of_buildings: int
+    number_of_floors: int
+    property_gfa_total: float
+    property_gfa_parking: float
+    property_gfa_buildings: float
+    list_of_all_property_use_types: Optional[str] = None
+    largest_property_use_type: str
+    largest_property_use_type_gfa: float
+    second_largest_property_use_type: Optional[str] = None
+    second_largest_property_use_type_gfa: Optional[float] = None
+    third_largest_property_use_type: Optional[str] = None
+    third_largest_property_use_type_gfa: Optional[float] = None
+    years_energystar_certified: Optional[int] = None
+    outlier: str
+    building_age: float
+    surface_per_floor: float
+    is_multi_use: bool
+    lat_zone: int
+    lon_zone: int
+    created_at: datetime
+    
+    model_config = ConfigDict(from_attributes=True)
+
+
 class PredictionResponse(BaseModel):
     """Response model for a single prediction."""
     id: int
+    dataset_id: int
     prediction: float
-    building_type: str
     created_at: datetime
+    
+    model_config = ConfigDict(from_attributes=True)
+
+
+class PredictionWithDatasetResponse(BaseModel):
+    """Response model for prediction with dataset details."""
+    id: int
+    prediction: float
+    created_at: datetime
+    dataset: DatasetResponse
     
     model_config = ConfigDict(from_attributes=True)
 

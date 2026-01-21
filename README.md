@@ -98,8 +98,8 @@ uv run uvicorn app.main:app --reload
 Le serveur sera accessible sur `http://localhost:8000`
 
 ### Accès à la documentation interactive
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+- **Swagger UI**: https://daguegg-model-machine-learning.hf.space/docs
+- **ReDoc**: https://daguegg-model-machine-learning.hf.space/redoc
 
 ---
 

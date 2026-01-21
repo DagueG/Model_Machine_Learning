@@ -1,0 +1,293 @@
+BuildingType,PrimaryPropertyType,ZipCode,CouncilDistrictCode,Neighborhood,Latitude,Longitude,YearBuilt,NumberofBuildings,NumberofFloors,PropertyGFATotal,PropertyGFAParking,PropertyGFABuilding(s),ListOfAllPropertyUseTypes,LargestPropertyUseType,LargestPropertyUseTypeGFA,SecondLargestPropertyUseType,SecondLargestPropertyUseTypeGFA,ThirdLargestPropertyUseType,ThirdLargestPropertyUseTypeGFA,YearsENERGYSTARCertified,Outlier,BuildingAge,SurfacePerFloor,IsMultiUse,LatZone,LonZone
+NonResidential,Mixed Use Property,98119.0,7,MAGNOLIA / QUEEN ANNE,47.65532,-122.37133,1961,1.0,2,37600,0,37600,"Non-Refrigerated Warehouse, Office, Other",Non-Refrigerated Warehouse,18400.0,Other,16200.0,Office,3000.0,,,55,18800.0,True,3,1
+NonResidential,Warehouse,98108.0,2,GREATER DUWAMISH,47.56056,-122.32593,1975,1.0,1,28126,0,28126,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,21780.0,Office,6346.0,,,,,41,28126.0,True,1,2
+NonResidential,Large Office,98104.0,7,DOWNTOWN,47.60353,-122.33558,1900,1.0,6,205521,0,205521,"Office, Retail Store",Office,114919.0,Retail Store,28643.0,,,,,116,34253.5,True,2,2
+NonResidential,Mixed Use Property,98105.0,4,NORTHEAST,47.6586,-122.3124,2009,1.0,6,122400,54300,68100,"Multifamily Housing, Office, Parking, Retail Store",Office,41624.0,Parking,33399.0,Multifamily Housing,20740.0,,,7,20400.0,True,3,3
+NonResidential,Other,98108.0,2,GREATER DUWAMISH,47.56671,-122.32446,1974,1.0,1,20819,0,20819,Manufacturing/Industrial Plant,Manufacturing/Industrial Plant,20819.0,,,,,,,42,20819.0,False,1,2
+NonResidential,Hotel,98105.0,4,NORTHEAST,47.66355,-122.30123,1961,2.0,2,24100,0,24100,Hotel,Hotel,30910.0,,,,,,,55,12050.0,False,3,3
+NonResidential,Large Office,98121.0,7,DOWNTOWN,47.6117,-122.34778,1998,1.0,11,374405,184776,189629,"Laboratory, Office",Office,150969.0,Laboratory,41829.0,,,201620152012,,18,34036.818181818184,True,2,2
+NonResidential,Retail Store,98134.0,2,GREATER DUWAMISH,47.57667,-122.32542,1951,1.0,2,24000,0,24000,"Office, Retail Store",Retail Store,22740.0,Office,4860.0,,,,,65,12000.0,True,1,2
+NonResidential,Small- and Mid-Sized Office,98105.0,4,LAKE UNION,47.65373,-122.32721,2007,1.0,3,44510,18228,26282,"Office, Parking",Office,26282.0,Parking,18228.0,,,,,9,14836.666666666666,True,3,2
+NonResidential,Other,98199.0,7,MAGNOLIA / QUEEN ANNE,47.66126,-122.38751,1965,1.0,1,23169,0,23169,Manufacturing/Industrial Plant,Manufacturing/Industrial Plant,10200.0,,,,,,,51,23169.0,False,3,0
+NonResidential,Retail Store,98133.0,5,NORTHWEST,47.72736,-122.34579,1968,1.0,1,48139,0,48139,Retail Store,Retail Store,40000.0,,,,,,,48,48139.0,False,4,2
+NonResidential,Senior Care Community,98103.0,6,Northwest,47.66312,-122.35311,1961,1.0,2,55974,0,55974,Senior Care Community,Senior Care Community,56000.0,,,,,,,55,27987.0,False,3,1
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60023,-122.33459,1900,1.0,4,33300,0,33300,"Office, Restaurant, Retail Store, Self-Storage Facility",Office,26639.0,Restaurant,2820.0,Retail Store,2377.0,,,116,8325.0,True,2,2
+NonResidential,Laboratory,98101.0,7,DOWNTOWN,47.61597,-122.33086,1946,1.0,2,44588,22000,22588,Laboratory,Laboratory,69000.0,,,,,,,70,22294.0,False,2,2
+NonResidential,Small- and Mid-Sized Office,98126.0,1,DELRIDGE,47.53419,-122.36624,1970,1.0,3,36879,0,36879,Office,Office,16855.0,,,,,,,46,12293.0,False,0,1
+NonResidential,Medical Office,98115.0,5,NORTH,47.70007,-122.32533,1980,1.0,2,26930,6350,20580,Medical Office,Medical Office,26930.0,,,,,,,36,13465.0,False,4,2
+NonResidential,Mixed Use Property,98101.0,7,DOWNTOWN,47.6177,-122.3306,2000,1.0,11,381381,195621,185760,"Fitness Center/Health Club/Gym, Office, Parking",Parking,182820.0,Office,164192.0,Fitness Center/Health Club/Gym,37782.0,,,16,34671.0,True,2,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.57941,-122.3336,1926,1.0,2,20400,0,20400,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,15000.0,Office,5400.0,,,,,90,10200.0,True,1,2
+NonResidential,Mixed Use Property,98134.0,2,GREATER DUWAMISH,47.58452,-122.3337,1916,1.0,1,27000,0,27000,"Other, Other - Entertainment/Public Assembly, Self-Storage Facility",Other,9000.0,Other - Entertainment/Public Assembly,9000.0,Self-Storage Facility,9000.0,,,100,27000.0,True,1,2
+NonResidential,Other,98115.0,4,NORTHEAST,47.67524,-122.31534,1941,1.0,4,56521,0,56521,Other,Other,49000.0,,,,,,,75,14130.25,False,3,3
+NonResidential,Retail Store,98115.0,5,NORTH,47.70053,-122.3038,1958,1.0,2,20738,0,20738,Retail Store,Retail Store,20738.0,,,,,,,58,10369.0,False,4,3
+NonResidential,Mixed Use Property,98134.0,2,GREATER DUWAMISH,47.59439,-122.32839,1930,3.0,2,108753,18860,89893,"Multifamily Housing, Non-Refrigerated Warehouse, Office, Parking, Retail Store, Worship Facility",Non-Refrigerated Warehouse,58605.0,Multifamily Housing,24338.0,Retail Store,18864.0,,,86,54376.5,True,1,2
+NonResidential,Small- and Mid-Sized Office,98144.0,3,SOUTHEAST,47.5859,-122.29957,1970,1.0,2,39170,0,39170,Office,Office,35500.0,,,,,,,46,19585.0,False,1,3
+NonResidential,Worship Facility,98102.0,3,EAST,47.62322037,-122.320017,1906,1.0,1,26440,0,26440,Worship Facility,Worship Facility,26440.0,,,,,,,110,26440.0,False,2,3
+NonResidential,Large Office,98121.0,7,DOWNTOWN,47.61429,-122.35263,1916,1.0,6,350310,0,350310,"College/University, Office, Restaurant",Office,305233.0,College/University,26900.0,Restaurant,7666.0,2017,,100,58385.0,True,2,1
+NonResidential,Mixed Use Property,98104.0,7,DOWNTOWN,47.6041,-122.33958,1900,1.0,1,62900,0,62900,"Other, Restaurant, Retail Store",Restaurant,32494.0,Other,29793.0,Retail Store,3384.300049,,,116,62900.0,True,2,2
+NonResidential,Small- and Mid-Sized Office,98134.0,2,GREATER DUWAMISH,47.59554,-122.32471,1925,1.0,4,72000,0,72000,Office,Office,72000.0,,,,,,,91,18000.0,False,1,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.56419,-122.34262,1999,1.0,1,243044,0,243044,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,325424.0,,,,,,,17,243044.0,False,1,2
+NonResidential,Large Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.62101,-122.36188,2008,1.0,5,183964,46763,137201,"Data Center, Office, Parking",Office,133451.0,Parking,46763.0,Data Center,3750.0,,,8,36792.8,True,2,1
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.56318,-122.32889,1962,1.0,1,31569,0,31569,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,33000.0,,,,,,,54,31569.0,False,1,2
+NonResidential,Hotel,98101.0,7,DOWNTOWN,47.60804,-122.33391,1923,1.0,12,542305,0,542305,"Hotel, Swimming Pool",Hotel,542305.0,Swimming Pool,0.0,,,,,93,45192.083333333336,True,2,2
+NonResidential,Small- and Mid-Sized Office,98122.0,3,CENTRAL,47.60191,-122.31438,1910,1.0,3,38460,0,38460,Office,Office,38460.0,,,,,,,106,12820.0,False,2,3
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60106,-122.33458,1900,1.0,5,38376,0,38376,"Office, Retail Store",Office,29258.0,Retail Store,2409.0,,,,,116,7675.2,True,2,2
+NonResidential,Small- and Mid-Sized Office,98115.0,4,NORTHEAST,47.67828,-122.26456,2002,1.0,2,96300,0,96300,"Data Center, Office",Office,92300.0,Data Center,4944.0,,,,,14,48150.0,True,3,4
+NonResidential,Small- and Mid-Sized Office,98125.0,5,NORTH,47.719,-122.29966,1931,1.0,2,37500,0,37500,Office,Office,37500.0,,,,,,,85,18750.0,False,4,3
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.59322,-122.32491,1920,1.0,4,20600,0,20600,"Repair Services (Vehicle, Shoe, Locksmith, etc)","Repair Services (Vehicle, Shoe, Locksmith, etc)",20600.0,,,,,,,96,5150.0,False,1,2
+NonResidential,Mixed Use Property,98104.0,2,DOWNTOWN,47.599,-122.32717,1900,1.0,3,22480,0,22480,"Office, Other, Retail Store",Office,10800.0,Other,10800.0,Retail Store,7200.0,,,116,7493.333333333333,True,1,2
+NonResidential,Large Office,98104.0,2,DOWNTOWN,47.59858,-122.33198,1907,1.0,7,160580,0,160580,Office,Office,160580.0,,,,,,,109,22940.0,False,1,2
+NonResidential,Large Office,98109.0,7,MAGNOLIA / QUEEN ANNE,47.62906,-122.34259,2015,1.0,10,513816,0,513816,"Office, Parking, Restaurant",Office,359040.0,Parking,151658.0,Restaurant,1087.0,2017,,1,51381.6,True,2,2
+NonResidential,Large Office,98109.0,3,LAKE UNION,47.62621,-122.33128,2001,1.0,6,226592,95000,131592,"Office, Parking",Office,131592.0,Parking,83178.0,,,,,15,37765.333333333336,True,2,2
+NonResidential,Hotel,98109.0,7,LAKE UNION,47.61988,-122.33211,2008,1.0,6,84103,20732,63371,"Hotel, Parking",Hotel,63371.0,Parking,20732.0,,,,,8,14017.166666666666,True,2,2
+NonResidential,Small- and Mid-Sized Office,98115.0,5,NORTH,47.70063,-122.32487,1979,1.0,4,53730,0,53730,"Office, Parking",Office,53730.0,Parking,0.0,,,,,37,13432.5,True,4,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.57881,-122.33273,1992,1.0,1,29394,0,29394,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,29394.0,Office,16902.0,,,,,24,29394.0,True,1,2
+NonResidential,Retail Store,98105.0,4,NORTHEAST,47.6646,-122.29932,1996,1.0,1,25735,0,25735,Retail Store,Retail Store,25691.0,,,,,2013,,20,25735.0,False,3,3
+NonResidential,Retail Store,98134.0,2,GREATER DUWAMISH,47.56535,-122.34054,1953,1.0,1,39900,0,39900,"Non-Refrigerated Warehouse, Retail Store",Retail Store,25000.0,Non-Refrigerated Warehouse,15000.0,,,,Low outlier,63,39900.0,True,1,2
+NonResidential,Small- and Mid-Sized Office,98121.0,7,DOWNTOWN,47.61185,-122.3434,1918,1.0,3,38148,0,38148,"Office, Retail Store",Office,37853.0,Retail Store,12495.0,,,,,98,12716.0,True,2,2
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.5793,-122.32226,1960,1.0,1,24109,0,24109,"Manufacturing/Industrial Plant, Parking",Manufacturing/Industrial Plant,24109.0,Parking,0.0,,,,,56,24109.0,True,1,2
+NonResidential,Senior Care Community,98126.0,1,SOUTHWEST,47.55837,-122.37751,1922,1.0,5,217603,0,217603,"Parking, Senior Care Community",Senior Care Community,296313.0,Parking,0.0,,,,,94,43520.6,True,1,1
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60431,-122.33335,1979,1.0,3,63990,26640,37350,"Office, Parking",Office,39000.0,Parking,26640.0,,,,,37,21330.0,True,2,2
+NonResidential,Mixed Use Property,98104.0,7,DOWNTOWN,47.60195,-122.33516,1913,1.0,3,43878,0,43878,"Multifamily Housing, Non-Refrigerated Warehouse, Office, Retail Store",Multifamily Housing,12000.0,Office,8262.0,Retail Store,6312.0,,,103,14626.0,True,2,2
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.5661,-122.33358,1946,1.0,2,31360,0,31360,Other - Entertainment/Public Assembly,Other - Entertainment/Public Assembly,32000.0,,,,,,,70,15680.0,False,1,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.59954,-122.33115,1900,0.0,3,26830,0,26830,"Office, Other",Office,16838.0,Other,10000.0,,,,,116,8943.333333333334,True,2,2
+NonResidential,Medical Office,98104.0,3,EAST,47.60663,-122.32157,1988,1.0,5,188339,99314,89025,"Medical Office, Parking",Medical Office,81873.0,Parking,67000.0,,,,,28,37667.8,True,2,3
+NonResidential,Warehouse,98108.0,2,GREATER DUWAMISH,47.56501,-122.3248,1974,1.0,1,35046,0,35046,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,32546.0,,,,,,,42,35046.0,False,1,2
+NonResidential,Mixed Use Property,98109.0,7,LAKE UNION,47.61893,-122.34473,2008,1.0,4,274442,0,274442,"Hotel, Multifamily Housing, Parking, Retail Store",Hotel,108763.0,Parking,105499.0,Multifamily Housing,58152.0,,,8,68610.5,True,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60266,-122.33332,1900,1.0,7,89550,0,89550,"Office, Retail Store, Social/Meeting Hall",Office,64712.0,Retail Store,10058.0,Social/Meeting Hall,7030.0,,,116,12792.857142857143,True,2,2
+NonResidential,Warehouse,98108.0,1,GREATER DUWAMISH,47.52024,-122.32137,2007,1.0,1,35289,0,35289,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,35289.0,,,,,,,9,35289.0,False,0,3
+NonResidential,K-12 School,98106.0,1,DELRIDGE,47.51698,-122.35946,1924,1.0,2,42975,0,42975,K-12 School,K-12 School,21405.0,,,,,,,92,21487.5,False,0,1
+NonResidential,Medical Office,98122.0,3,EAST,47.61065,-122.32125,1962,1.0,2,30855,10285,20570,Medical Office,Medical Office,21571.0,,,,,,,54,15427.5,False,2,3
+NonResidential,Warehouse,98107.0,6,Ballard,47.6582,-122.36434,2004,1.0,4,87332,6458,80874,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,87332.0,,,,,,,12,21833.0,False,3,1
+NonResidential,Small- and Mid-Sized Office,98107.0,6,BALLARD,47.66587,-122.38476,1961,1.0,2,94900,0,94900,"Non-Refrigerated Warehouse, Office",Office,55586.0,Non-Refrigerated Warehouse,39314.0,,,,,55,47450.0,True,3,0
+NonResidential,Distribution Center,98134.0,2,GREATER DUWAMISH,47.57747,-122.32844,1937,1.0,1,41248,0,41248,Distribution Center,Distribution Center,41430.0,,,,,,,79,41248.0,False,1,2
+NonResidential,K-12 School,98112.0,3,EAST,47.62644,-122.30429,1908,1.0,6,194104,0,194104,K-12 School,K-12 School,194104.0,,,,,,,108,32350.666666666668,False,2,3
+NonResidential,Retail Store,98101.0,7,DOWNTOWN,47.61103,-122.33549,1915,1.0,1,36504,0,36504,Retail Store,Retail Store,16200.0,,,,,,,101,36504.0,False,2,2
+NonResidential,Supermarket / Grocery Store,98125.0,5,North,47.70941,-122.31707,1996,1.0,1,44755,0,44755,Supermarket/Grocery Store,Supermarket/Grocery Store,46978.0,,,,,,,20,44755.0,False,4,3
+NonResidential,Large Office,98121.0,7,DOWNTOWN,47.6176,-122.35686,1984,1.0,8,253103,61986,191117,"Laboratory, Office, Other, Parking",Office,158681.0,Parking,70190.0,Other,21782.0,2010,,32,31637.875,True,2,1
+NonResidential,Large Office,98134.0,2,GREATER DUWAMISH,47.58181,-122.33534,1912,0.0,6,1380959,0,1380959,"Non-Refrigerated Warehouse, Office, Retail Store",Office,1000730.0,Retail Store,281296.0,Non-Refrigerated Warehouse,220303.0,,,104,230159.83333333334,True,1,2
+NonResidential,Worship Facility,98115.0,6,Northwest,47.67572,-122.3285,1910,1.0,2,23931,0,23931,Worship Facility,Worship Facility,23931.0,,,,,,,106,11965.5,False,3,2
+NonResidential,Retail Store,98122.0,3,EAST,47.61378771,-122.3214255,1996,0.0,3,45743,0,45743,Retail Store,Retail Store,45243.0,,,,,,,20,15247.666666666666,False,2,3
+NonResidential,Worship Facility,98105.0,4,NORTHEAST,47.6626,-122.31164,1952,1.0,3,103000,0,103000,Worship Facility,Worship Facility,103000.0,,,,,,,64,34333.333333333336,False,3,3
+NonResidential,Worship Facility,98105.0,4,NORTHEAST,47.6709,-122.27054,2008,1.0,2,70292,0,70292,Worship Facility,Worship Facility,70292.0,,,,,,,8,35146.0,False,3,4
+NonResidential,Other,98104.0,3,EAST,47.60709,-122.32416,1951,1.0,1,47699,0,47699,"Museum, Parking",Museum,47000.0,Parking,0.0,,,,,65,47699.0,True,2,2
+NonResidential,Retail Store,98121.0,7,MAGNOLIA / QUEEN ANNE,47.63284,-122.37712,1978,1.0,1,50660,0,50660,Retail Store,Retail Store,50660.0,,,,,,,38,50660.0,False,2,1
+NonResidential,Hotel,98109.0,7,LAKE UNION,47.62014,-122.34456,1959,1.0,4,38520,0,38520,Hotel,Hotel,38500.0,,,,,,,57,9630.0,False,2,2
+NonResidential,Large Office,98134.0,2,GREATER DUWAMISH,47.5735,-122.32239,2005,1.0,4,162157,0,162157,"Office, Other - Services",Office,88698.0,Other - Services,72726.0,,,,,11,40539.25,True,1,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.58069,-122.3325,1988,3.0,1,51664,0,51664,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,51664.0,,,,,,,28,51664.0,False,1,2
+NonResidential,Supermarket / Grocery Store,98118.0,2,GREATER DUWAMISH,47.53747,-122.28308,1953,1.0,1,26092,0,26092,"Parking, Supermarket/Grocery Store",Supermarket/Grocery Store,25946.0,Parking,0.0,,,,,63,26092.0,True,0,4
+NonResidential,Senior Care Community,98104.0,3,EAST,47.60897,-122.32507,2006,1.0,6,62334,0,62334,"Bank Branch, Parking, Senior Care Community",Senior Care Community,35696.0,Bank Branch,15661.0,Parking,10877.0,,,10,10389.0,True,2,2
+NonResidential,Hotel,98109.0,7,LAKE UNION,47.62025,-122.34314,1997,1.0,6,116300,28200,88100,Hotel,Hotel,88490.0,Parking,28300.0,,,,,19,19383.333333333332,True,2,2
+NonResidential,Small- and Mid-Sized Office,98109.0,7,MAGNOLIA / QUEEN ANNE,47.62391,-122.34837,1986,0.0,2,66240,2352,63888,"Data Center, Distribution Center, Office, Parking, Retail Store",Office,45900.0,Data Center,5181.0,Distribution Center,4551.0,,,30,33120.0,True,2,2
+NonResidential,Warehouse,98108.0,2,GREATER DUWAMISH,47.55515,-122.3275,1974,1.0,1,93020,0,93020,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,93020.0,,,,,,,42,93020.0,False,1,2
+NonResidential,Small- and Mid-Sized Office,98134.0,3,EAST,47.59534849,-122.327269,1930,0.0,4,76624,0,76624,Office,Office,76624.0,,,,,,,86,19156.0,False,1,2
+NonResidential,Other,98121.0,7,DOWNTOWN,47.61234,-122.34897,1983,1.0,6,275982,197130,78852,"Office, Parking",Parking,197040.0,Office,78852.0,,,,,33,45997.0,True,2,2
+NonResidential,Large Office,98104.0,2,DOWNTOWN,47.59878,-122.33088,1998,1.0,8,446261,124788,321473,"Office, Parking",Office,343400.0,Parking,114237.0,,,2014201020082001,,18,55782.625,True,1,2
+NonResidential,Large Office,98109.0,7,MAGNOLIA / QUEEN ANNE,47.63347,-122.34078,2000,1.0,4,191146,94892,96254,"Office, Parking",Office,103000.0,Parking,80000.0,,,,,16,47786.5,True,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.6026,-122.33232,1929,1.0,2,20028,0,20028,Office,Office,20028.0,,,,,,,87,10014.0,False,2,2
+NonResidential,Medical Office,98105.0,4,NORTHEAST,47.65821,-122.31831,1988,1.0,4,196749,88405,108344,"Medical Office, Parking",Medical Office,108344.0,Parking,88405.0,,,,,28,49187.25,True,3,3
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.55741,-122.33163,1973,0.0,1,110689,0,110689,Other,Other,110689.0,,,,,,,43,110689.0,False,1,2
+NonResidential,Small- and Mid-Sized Office,98101.0,3,EAST,47.61063,-122.32741,1946,1.0,3,22667,0,22667,Office,Office,22667.0,,,,,,,70,7555.666666666667,False,2,2
+NonResidential,Retail Store,98122.0,3,EAST,47.61386,-122.32481,1910,0.0,2,24750,0,24750,"Medical Office, Office, Retail Store",Retail Store,19240.0,Office,2050.0,Medical Office,1250.0,,,106,12375.0,True,2,2
+NonResidential,Supermarket / Grocery Store,98105.0,4,NORTHEAST,47.66429,-122.31389,1950,1.0,1,26226,0,26226,"Parking, Supermarket/Grocery Store",Supermarket/Grocery Store,25828.0,Parking,0.0,,,,,66,26226.0,True,3,3
+NonResidential,Warehouse,98108.0,1,GREATER DUWAMISH,47.53651,-122.32954,1964,1.0,2,23400,0,23400,"Non-Refrigerated Warehouse, Office, Parking",Non-Refrigerated Warehouse,20002.0,Office,3374.0,Parking,0.0,,,52,11700.0,True,0,2
+NonResidential,Hospital,98109.0,3,LAKE UNION,47.62667,-122.32965,2000,1.0,7,351530,150455,201075,Hospital (General Medical & Surgical),Hospital (General Medical & Surgical),215602.0,,,,,,,16,50218.57142857143,False,2,2
+NonResidential,Retail Store,98109.0,7,LAKE UNION,47.62,-122.33027,1996,1.0,4,264008,159994,104014,Retail Store,Retail Store,98863.0,,,,,,,20,66002.0,False,2,2
+NonResidential,Other,98118.0,2,GREATER DUWAMISH,47.53722,-122.284,2009,1.0,5,89821,0,89821,"Food Service, Office, Other - Lodging/Residential",Other - Lodging/Residential,46483.0,Office,37938.0,Food Service,4579.0,,,7,17964.2,True,0,4
+NonResidential,Self-Storage Facility,98118.0,2,GREATER DUWAMISH,47.54514,-122.28596,1955,1.0,1,23100,0,23100,Self-Storage Facility,Self-Storage Facility,23250.0,,,,,,,61,23100.0,False,0,4
+NonResidential,Supermarket / Grocery Store,98125.0,5,NORTH,47.7237,-122.29232,1995,1.0,2,308965,187878,121087,"Parking, Supermarket/Grocery Store",Supermarket/Grocery Store,121087.0,Parking,0.0,Parking,0.0,,,21,154482.5,True,4,3
+NonResidential,Worship Facility,98101.0,7,DOWNTOWN,47.60867,-122.33265,1968,1.0,3,75058,34510,40548,Worship Facility,Worship Facility,75058.0,,,,,,,48,25019.333333333332,False,2,2
+NonResidential,Large Office,98101.0,7,DOWNTOWN,47.61108,-122.34217,1923,1.0,11,102846,0,102846,"Office, Retail Store",Office,93879.0,Retail Store,7500.0,,,,,93,9349.636363636364,True,2,2
+NonResidential,Distribution Center,98134.0,2,GREATER DUWAMISH,47.57023,-122.33241,1980,1.0,1,52613,0,52613,Distribution Center,Distribution Center,59504.0,,,,,,,36,52613.0,False,1,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.55716,-122.33744,1924,1.0,1,38412,0,38412,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,32000.0,Office,8000.0,,,,,92,38412.0,True,1,2
+NonResidential,Mixed Use Property,98199.0,7,MAGNOLIA / QUEEN ANNE,47.66144,-122.38723,2014,1.0,2,25532,0,25532,"Office, Repair Services (Vehicle, Shoe, Locksmith, etc)",Office,11745.0,"Repair Services (Vehicle, Shoe, Locksmith, etc)",11745.0,,,,,2,12766.0,True,3,0
+NonResidential,Hotel,98133.0,5,NORTHWEST,47.72551,-122.3423,2002,1.0,3,69138,0,69138,Hotel,Hotel,70609.0,,,,,,,14,23046.0,False,4,2
+NonResidential,Mixed Use Property,98104.0,7,DOWNTOWN,47.60515,-122.33159,1907,1.0,5,57452,0,57452,"Office, Other, Other - Lodging/Residential, Restaurant, Social/Meeting Hall",Social/Meeting Hall,16442.0,Restaurant,15505.0,Office,9741.0,,,109,11490.4,True,2,2
+NonResidential,Retail Store,98104.0,2,DOWNTOWN,47.59951,-122.32033,2000,1.0,3,54969,0,54969,Retail Store,Retail Store,54969.0,,,,,,,16,18323.0,False,2,3
+NonResidential,Small- and Mid-Sized Office,98109.0,7,MAGNOLIA / QUEEN ANNE,47.64865,-122.35435,1980,1.0,3,70296,0,70296,Office,Office,70296.0,,,,,,,36,23432.0,False,3,1
+NonResidential,Warehouse,98108.0,2,GREATER DUWAMISH,47.55049,-122.32382,1968,1.0,1,27680,0,27680,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,25000.0,Office,2680.0,,,,,48,27680.0,True,0,2
+NonResidential,Large Office,98104.0,2,DOWNTOWN,47.59666,-122.32768,2000,1.0,11,268130,0,268130,Office,Office,268130.0,,,,,20162015201420132012201020092008,,16,24375.454545454544,False,1,2
+NonResidential,Small- and Mid-Sized Office,98133.0,3,CENTRAL,47.59973,-122.31331,1947,1.0,1,45068,0,45068,Office,Office,45068.0,,,,,,Low outlier,69,45068.0,False,2,3
+NonResidential,Retail Store,98122.0,3,EAST,47.61466,-122.31984,1920,1.0,1,30240,0,30240,"Restaurant, Retail Store",Retail Store,32205.0,Restaurant,714.0,,,,,96,30240.0,True,2,3
+NonResidential,Supermarket / Grocery Store,98105.0,4,NORTHEAST,47.66824,-122.28394,1973,1.0,1,24377,0,24377,Supermarket/Grocery Store,Supermarket/Grocery Store,24377.0,,,,,,,43,24377.0,False,3,4
+NonResidential,Large Office,98109.0,7,MAGNOLIA / QUEEN ANNE,47.61949,-122.35639,1974,1.0,5,102930,18720,84210,"Office, Parking",Office,89075.0,Parking,15164.0,,,2017,,42,20586.0,True,2,1
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.59954,-122.33201,1900,1.0,3,38675,0,38675,"Office, Restaurant",Office,12100.0,Restaurant,4281.0,,,,,116,12891.666666666666,True,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60148,-122.33379,1985,1.0,6,73102,0,73102,"Office, Parking",Office,92723.0,Parking,18364.0,,,,,31,12183.666666666666,True,2,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.58781,-122.33264,1954,1.0,1,78814,0,78814,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,78814.0,,,,,,,62,78814.0,False,1,2
+NonResidential,Large Office,98134.0,2,GREATER DUWAMISH,47.58872,-122.33475,2014,1.0,7,333714,146687,187027,"Office, Parking",Office,191333.0,Parking,133432.0,,,,,2,47673.42857142857,True,1,2
+NonResidential,Small- and Mid-Sized Office,98103.0,6,LAKE UNION,47.65186,-122.35531,1981,1.0,2,22388,0,22388,"Multifamily Housing, Office",Office,19600.0,Multifamily Housing,2788.0,,,,,35,11194.0,True,3,1
+NonResidential,Small- and Mid-Sized Office,98133.0,5,NORTHWEST,47.70349,-122.33424,1983,1.0,3,24696,6300,18396,"Office, Parking",Office,18396.0,Parking,6300.0,,,,,33,8232.0,True,4,2
+NonResidential,Senior Care Community,98101.0,7,EAST,47.61318,-122.32747,1969,1.0,6,95117,26082,69035,"Parking, Senior Care Community",Senior Care Community,69035.0,Parking,26082.0,,,,,47,15852.833333333334,True,2,2
+NonResidential,Large Office,98109.0,7,LAKE UNION,47.62488,-122.33007,1990,1.0,5,144573,66620,77953,"Office, Parking",Office,78521.0,Parking,66650.0,,,,,26,28914.6,True,2,2
+NonResidential,Warehouse,98125.0,5,NORTH,47.70799,-122.30185,1987,1.0,4,80360,0,80360,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,80360.0,,,,,,,29,20090.0,False,4,3
+NonResidential,Large Office,98101.0,7,DOWNTOWN,47.60991,-122.33687,1910,1.0,10,130513,0,130513,"Office, Restaurant, Retail Store",Office,87391.0,Retail Store,32264.0,Restaurant,10858.0,,,106,13051.3,True,2,2
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.55768,-122.33137,2009,1.0,3,127065,84710,42355,"Office, Parking",Parking,84710.0,Office,42355.0,,,,,7,42355.0,True,1,2
+NonResidential,Other,98116.0,1,SOUTHWEST,47.5596,-122.38459,1987,1.0,6,146363,0,146363,Strip Mall,Strip Mall,146363.0,,,,,,,29,24393.833333333332,False,1,0
+NonResidential,Large Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.62302,-122.36476,2000,1.0,4,165111,55000,110111,"Data Center, Office, Parking",Office,104667.0,Parking,55000.0,Data Center,5444.0,,,16,41277.75,True,2,1
+NonResidential,Small- and Mid-Sized Office,98134.0,2,GREATER DUWAMISH,47.55658,-122.33322,2000,1.0,3,43473,0,43473,Office,Office,43473.0,,,,,,,16,14491.0,False,1,2
+NonResidential,Other,98133.0,5,NORTHWEST,47.72288,-122.34065,1961,1.0,1,20236,0,20236,Other - Recreation,Other - Recreation,20236.0,,,,,,,55,20236.0,False,4,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60427,-122.33385,1906,1.0,5,26840,0,26840,Office,Office,29040.0,,,,,,,110,5368.0,False,2,2
+NonResidential,Worship Facility,98115.0,6,NORTHWEST,47.67783,-122.32577,1978,1.0,2,27500,0,27500,Worship Facility,Worship Facility,27500.0,,,,,,,38,13750.0,False,3,2
+NonResidential,Small- and Mid-Sized Office,98104.0,2,DOWNTOWN,47.59657,-122.33394,1910,1.0,5,32250,0,32250,Office,Office,32250.0,,,,,,,106,6450.0,False,1,2
+NonResidential,Retail Store,98104.0,7,DOWNTOWN,47.60427,-122.33385,1906,1.0,2,46800,0,46800,"Office, Retail Store",Retail Store,36019.0,Office,10781.0,,,,,110,23400.0,True,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60247,-122.33372,1900,1.0,7,23622,0,23622,"Office, Restaurant",Office,26195.0,Restaurant,2285.0,,,,,116,3374.5714285714284,True,2,2
+NonResidential,K-12 School,98122.0,3,CENTRAL,47.60885,-122.2999,1929,1.0,2,24152,0,24152,K-12 School,K-12 School,24152.0,,,,,,Low outlier,87,12076.0,False,2,3
+NonResidential,Large Office,98101.0,7,DOWNTOWN,47.61166,-122.33528,1921,1.0,4,127268,0,127268,"Non-Refrigerated Warehouse, Office, Retail Store",Office,62512.0,Retail Store,53971.0,Non-Refrigerated Warehouse,5000.0,,,95,31817.0,True,2,2
+NonResidential,Warehouse,98119.0,7,MAGNOLIA / QUEEN ANNE,47.64913,-122.37929,1955,1.0,2,39497,0,39497,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,25547.0,Office,13950.0,,,,,61,19748.5,True,3,1
+NonResidential,Self-Storage Facility,98101.0,7,DOWNTOWN,47.61179,-122.3404,1928,1.0,6,46580,0,46580,Self-Storage Facility,Self-Storage Facility,46580.0,,,,,,,88,7763.333333333333,False,2,2
+NonResidential,Medical Office,98144.0,5,NORTH,47.7044,-122.32285,1986,1.0,2,28385,7056,21329,Medical Office,Medical Office,20575.0,,,,,,,30,14192.5,False,4,2
+NonResidential,Hotel,98109.0,7,LAKE UNION,47.62001,-122.34274,2000,1.0,7,150453,34735,115718,Hotel,Hotel,107547.0,Restaurant,3000.0,,,2014,,16,21493.285714285714,True,2,2
+NonResidential,Warehouse,98108.0,2,GREATER DUWAMISH,47.56845,-122.32732,1963,1.0,1,100386,0,100386,"Non-Refrigerated Warehouse, Other - Services",Non-Refrigerated Warehouse,50628.0,Other - Services,49758.0,,,,,53,100386.0,True,1,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.57934,-122.32501,1953,1.0,1,24990,0,24990,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,25649.0,Office,6728.0,,,,,63,24990.0,True,1,2
+NonResidential,Large Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.62177,-122.36158,1981,1.0,5,275734,38452,237282,"Office, Parking",Office,228504.0,Parking,47404.0,,,,,35,55146.8,True,2,1
+NonResidential,Warehouse,98136.0,2,GREATER DUWAMISH,47.51168,-122.28285,1978,1.0,1,60448,0,60448,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,52702.0,Office,7746.0,,,,,38,60448.0,True,0,4
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.59085,-122.33354,1999,1.0,3,1172127,0,1172127,Other - Entertainment/Public Assembly,Other - Entertainment/Public Assembly,1172127.0,,,,,,,17,390709.0,False,1,2
+NonResidential,Supermarket / Grocery Store,98119.0,7,MAGNOLIA / QUEEN ANNE,47.64909,-122.37788,1961,1.0,1,25842,0,25842,Supermarket/Grocery Store,Supermarket/Grocery Store,25987.0,,,,,,,55,25842.0,False,3,1
+NonResidential,Medical Office,98122.0,7,EAST,47.60707,-122.3288,2008,1.0,9,302902,101342,201560,"Medical Office, Parking",Medical Office,201365.0,Parking,86270.0,,,,,8,33655.77777777778,True,2,2
+NonResidential,Retail Store,98134.0,2,GREATER DUWAMISH,47.58698,-122.32397,1944,1.0,1,25880,0,25880,Retail Store,Retail Store,25880.0,,,,,,,72,25880.0,False,1,2
+NonResidential,K-12 School,98125.0,5,NORTHWEST,47.73143,-122.32784,1930,1.0,3,23983,0,23983,K-12 School,K-12 School,23983.0,,,,,,,86,7994.333333333333,False,4,2
+NonResidential,Restaurant,98109.0,7,LAKE UNION,47.62354,-122.33808,1919,1.0,3,40686,0,40686,Restaurant,Restaurant,40686.0,,,,,,,97,13562.0,False,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,2,DOWNTOWN,47.59856,-122.33248,1930,1.0,2,36630,0,36630,"Distribution Center, Office",Office,22000.0,Distribution Center,11000.0,,,,,86,18315.0,True,1,2
+NonResidential,Worship Facility,98103.0,6,Northwest,47.67491,-122.33316,1948,1.0,2,21393,0,21393,Worship Facility,Worship Facility,21393.0,,,,,,,68,10696.5,False,3,2
+NonResidential,Small- and Mid-Sized Office,98144.0,2,SOUTHEAST,47.58579,-122.3034,2009,1.0,3,38075,0,38075,"K-12 School, Office, Retail Store",Office,29035.0,K-12 School,6213.0,Retail Store,2825.0,,,7,12691.666666666666,True,1,3
+NonResidential,Large Office,98121.0,7,DOWNTOWN,47.61619,-122.34599,1978,1.0,12,234000,21790,212210,"Financial Office, Laboratory, Office, Parking",Office,173786.0,Laboratory,29865.0,Parking,25373.0,,,38,19500.0,True,2,2
+NonResidential,Mixed Use Property,98122.0,3,EAST,47.60453796,-122.3203278,2004,1.0,4,77412,21612,55800,"Office, Other, Parking",Other,26400.0,Office,19200.0,Parking,17000.0,,,12,19353.0,True,2,3
+NonResidential,K-12 School,98105.0,4,NORTHEAST,47.66665,-122.31818,2004,3.0,2,31343,0,31343,K-12 School,K-12 School,51515.0,,,,,,,12,15671.5,False,3,3
+NonResidential,Worship Facility,98116.0,1,SOUTHWEST,47.56342,-122.38509,1923,1.0,2,37816,0,37816,"K-12 School, Worship Facility",Worship Facility,19407.0,K-12 School,18701.0,,,,,93,18908.0,True,1,0
+NonResidential,Large Office,98109.0,7,LAKE UNION,47.62146,-122.33976,2014,1.0,12,480702,163260,317442,"Office, Parking",Office,341897.0,Parking,136594.0,,,,,2,40058.5,True,2,2
+NonResidential,Small- and Mid-Sized Office,98122.0,3,CENTRAL,47.60592,-122.31367,1984,1.0,5,72613,22788,49825,"Office, Parking",Office,49825.0,Parking,22788.0,,,,,32,14522.6,True,2,3
+NonResidential,Retail Store,98199.0,2,GREATER DUWAMISH,47.5653,-122.33076,2005,1.0,1,158415,0,158415,Retail Store,Retail Store,158415.0,,,,,,,11,158415.0,False,1,2
+NonResidential,Other,98121.0,7,MAGNOLIA / QUEEN ANNE,47.61915,-122.35871,1928,3.0,4,62600,0,62600,Other,Other,215197.0,,,,,,,88,15650.0,False,2,1
+NonResidential,Medical Office,98125.0,5,NORTH,47.70676,-122.32264,1988,1.0,3,28841,0,28841,Medical Office,Medical Office,28841.0,,,,,,,28,9613.666666666666,False,4,2
+NonResidential,Self-Storage Facility,98121.0,7,DOWNTOWN,47.61351,-122.35129,1911,1.0,3,70586,0,70586,"Office, Self-Storage Facility, Vocational School",Self-Storage Facility,38439.0,Vocational School,28197.0,Office,3859.0,,,105,23528.666666666668,True,2,2
+NonResidential,K-12 School,98102.0,3,EAST,47.63239,-122.32072,1930,1.0,2,45960,0,45960,K-12 School,K-12 School,45960.0,,,,,,,86,22980.0,False,2,3
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.57936,-122.32322,1972,1.0,1,31365,0,31365,Other,Other,31365.0,,,,,,,44,31365.0,False,1,2
+NonResidential,Other,98116.0,1,SOUTHWEST,47.56398,-122.38727,1920,1.0,1,31332,0,31332,Other,Other,31332.0,,,,,,,96,31332.0,False,1,0
+NonResidential,Worship Facility,98116.0,1,SOUTHWEST,47.57384,-122.41182,1926,1.0,2,22128,0,22128,Worship Facility,Worship Facility,22128.0,,,,,,,90,11064.0,False,1,0
+NonResidential,Warehouse,98144.0,2,GREATER DUWAMISH,47.58482,-122.30501,1970,1.0,2,31000,0,31000,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,31000.0,,,,,,,46,15500.0,False,1,3
+NonResidential,Other,98107.0,6,BALLARD,47.66233,-122.3748,2008,1.0,5,322869,182454,140415,"Parking, Retail Store",Parking,182454.0,Retail Store,130744.0,,,,,8,64573.8,True,3,1
+NonResidential,Large Office,98109.0,7,LAKE UNION,47.62137,-122.33744,2006,1.0,4,209816,73673,136143,"Fitness Center/Health Club/Gym, Office, Parking, Restaurant",Office,113803.0,Parking,79091.0,Fitness Center/Health Club/Gym,15803.0,201620152014201320092008,,10,52454.0,True,2,2
+NonResidential,Worship Facility,98122.0,3,CENTRAL,47.61118,-122.288,1900,1.0,1,21850,0,21850,Worship Facility,Worship Facility,21850.0,,,,,,,116,21850.0,False,2,4
+NonResidential,Small- and Mid-Sized Office,98144.0,3,DOWNTOWN,47.59728,-122.31587,2001,1.0,5,70332,22095,48237,"Office, Parking",Office,44417.0,Parking,25915.0,,,,,15,14066.4,True,1,3
+NonResidential,Warehouse,98108.0,2,GREATER DUWAMISH,47.54912,-122.32819,1966,1.0,1,55700,0,55700,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,55700.0,,,,,,,50,55700.0,False,0,2
+NonResidential,Small- and Mid-Sized Office,98105.0,4,NORTHEAST,47.661,-122.31626,1961,0.0,5,99005,0,99005,Office,Office,79555.0,,,,,,,55,19801.0,False,3,3
+NonResidential,Residence Hall,98104.0,3,EAST,47.60817,-122.32654,1982,0.0,15,115775,31535,84240,"Office, Residence Hall/Dormitory",Residence Hall/Dormitory,150000.0,Office,25000.0,,,,,34,7718.333333333333,True,2,2
+NonResidential,Small- and Mid-Sized Office,98101.0,7,DOWNTOWN,47.61267,-122.33852,1925,1.0,2,44098,13660,30438,"Office, Parking",Office,25920.0,Parking,13155.0,,,,,91,22049.0,True,2,2
+NonResidential,Self-Storage Facility,98144.0,3,GREATER DUWAMISH,47.59291,-122.31042,1956,1.0,2,28800,0,28800,Self-Storage Facility,Self-Storage Facility,28800.0,,,,,,,60,14400.0,False,1,3
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60035,-122.33379,1900,1.0,4,84750,0,84750,"Enclosed Mall, Office",Office,41609.0,Enclosed Mall,28734.0,,,,,116,21187.5,True,2,2
+NonResidential,Large Office,98109.0,7,MAGNOLIA / QUEEN ANNE,47.62929,-122.34194,1996,2.0,5,213283,115228,98055,"Office, Parking",Office,105563.0,Parking,0.0,,,20112009,,20,42656.6,True,2,2
+NonResidential,Small- and Mid-Sized Office,98109.0,7,LAKE UNION,47.62353,-122.33622,1926,1.0,3,26176,0,26176,Office,Office,23730.0,,,,,,,90,8725.333333333334,False,2,2
+NonResidential,Worship Facility,98105.0,4,NORTHEAST,47.66517,-122.31037,1927,1.0,3,41013,0,41013,"Office, Worship Facility",Worship Facility,32098.0,Office,2310.0,,,,,89,13671.0,True,3,3
+NonResidential,Supermarket / Grocery Store,98133.0,5,NORTHWEST,47.70224,-122.34409,1986,0.0,1,45155,0,45155,Supermarket/Grocery Store,Supermarket/Grocery Store,45155.0,,,,,,,30,45155.0,False,4,2
+NonResidential,Small- and Mid-Sized Office,98104.0,2,DOWNTOWN,47.59644,-122.32415,1979,1.0,3,35202,0,35202,"Bank Branch, Office",Office,24227.0,Bank Branch,9127.0,,,,,37,11734.0,True,1,2
+NonResidential,Retail Store,98109.0,7,LAKE UNION,47.62399,-122.33804,1964,1.0,2,45271,0,45271,Retail Store,Retail Store,45271.0,,,,,,,52,22635.5,False,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60542,-122.3364,1900,1.0,5,39960,0,39960,"Office, Other",Office,37120.0,Other,2840.0,,,,,116,7992.0,True,2,2
+NonResidential,Large Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.65692,-122.37059,1978,1.0,1,105100,0,105100,Office,Office,105100.0,,,,,,,38,105100.0,False,3,1
+NonResidential,Worship Facility,98116.0,1,SOUTHWEST,47.57177,-122.38716,1948,1.0,2,35864,0,35864,Worship Facility,Worship Facility,35864.0,,,,,,,68,17932.0,False,1,0
+NonResidential,Hotel,98105.0,4,NORTHEAST,47.65772,-122.31756,1962,2.0,4,50017,0,50017,"Hotel, Swimming Pool",Hotel,50017.0,Swimming Pool,0.0,,,,,54,12504.25,True,3,3
+NonResidential,Other,98116.0,1,SOUTHWEST,47.56263,-122.38196,1948,1.0,1,41521,13124,28397,"Other - Recreation, Parking, Restaurant",Other - Recreation,26241.0,Parking,13124.0,Restaurant,2574.0,,,68,41521.0,True,1,0
+NonResidential,Warehouse,98115.0,4,NORTHEAST,47.68454,-122.26235,1940,1.0,0,384772,0,384772,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,349953.0,Office,63872.0,,,,,76,,True,3,4
+NonResidential,Warehouse,98106.0,1,DELRIDGE,47.53846,-122.36175,1982,1.0,2,36600,0,36600,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,43556.0,,,,,,,34,18300.0,False,0,1
+NonResidential,Hotel,98101.0,3,EAST,47.60981,-122.32687,1928,1.0,9,48006,0,48006,Hotel,Hotel,48006.0,,,,,,,88,5334.0,False,2,2
+NonResidential,Large Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.62175,-122.36313,2000,1.0,5,159937,55971,103966,"Office, Parking",Office,106449.0,Parking,50258.0,,,,,16,31987.4,True,2,1
+NonResidential,Worship Facility,98133.0,5,NORTHWEST,47.71745,-122.33221,1965,1.0,2,44719,0,44719,"Medical Office, Office, Worship Facility",Worship Facility,45909.0,Medical Office,1025.0,Office,972.0,,,51,22359.5,True,4,2
+NonResidential,Warehouse,98109.0,7,MAGNOLIA / QUEEN ANNE,47.64306,-122.34219,1968,1.0,2,29498,0,29498,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,19749.0,Office,9148.0,,,,,48,14749.0,True,2,2
+NonResidential,Small- and Mid-Sized Office,98108.0,2,GREATER DUWAMISH,47.54974,-122.3261,1967,1.0,2,24000,0,24000,Office,Office,24000.0,,,,,,,49,12000.0,False,0,2
+NonResidential,Other,98122.0,3,EAST,47.61314,-122.32262,1912,1.0,3,33708,0,33708,Other,Other,33708.0,,,,,,,104,11236.0,False,2,2
+NonResidential,Worship Facility,98103.0,6,Northwest,47.66476,-122.35248,1928,1.0,2,45991,0,45991,Worship Facility,Worship Facility,45991.0,,,,,,,88,22995.5,False,3,1
+NonResidential,Medical Office,98115.0,4,NORTHEAST,47.67437,-122.3181,1970,1.0,2,23595,0,23595,Medical Office,Medical Office,23595.0,,,,,,,46,11797.5,False,3,3
+NonResidential,Small- and Mid-Sized Office,98144.0,2,GREATER DUWAMISH,47.58034,-122.31132,1900,1.0,2,52554,0,52554,"Office, Other - Education",Office,51029.0,Other - Education,7849.0,,,,,116,26277.0,True,1,3
+NonResidential,Large Office,98109.0,7,LAKE UNION,47.62424,-122.33646,2010,1.0,5,316306,0,316306,"Office, Other, Parking, Retail Store",Office,261826.0,Parking,150726.0,Other,15139.0,,,6,63261.2,True,2,2
+NonResidential,Mixed Use Property,98109.0,3,LAKE UNION,47.62774,-122.33384,1988,1.0,2,34639,15402,19237,"Other, Parking, Restaurant",Restaurant,23373.0,Other,19659.0,Parking,15402.0,,,28,17319.5,True,2,2
+NonResidential,Distribution Center,98134.0,2,GREATER DUWAMISH,47.58772,-122.32686,1987,1.0,1,111908,0,111908,Distribution Center,Distribution Center,109090.0,,,,,,,29,111908.0,False,1,2
+NonResidential,Warehouse,98118.0,2,GREATER DUWAMISH,47.51018,-122.28192,1969,1.0,1,37351,0,37351,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,29551.0,Office,9569.0,,,,,47,37351.0,True,0,4
+NonResidential,Supermarket / Grocery Store,98118.0,2,SOUTHEAST,47.52095,-122.26825,2002,1.0,1,61053,0,61053,"Parking, Supermarket/Grocery Store",Supermarket/Grocery Store,54434.0,Parking,0.0,,,,,14,61053.0,True,0,4
+NonResidential,Small- and Mid-Sized Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.62497,-122.35965,1982,1.0,5,98668,0,98668,Office,Office,98668.0,,,,,2016201520142013201220102009,,34,19733.6,False,2,1
+NonResidential,Worship Facility,98105.0,4,NORTHEAST,47.66146,-122.2788,1954,1.0,2,20039,0,20039,Worship Facility,Worship Facility,20039.0,,,,,,Low outlier,62,10019.5,False,3,4
+NonResidential,University,98195.0,4,NORTHEAST,47.65356,-122.30613,1998,1.0,6,203030,0,203030,College/University,College/University,203030.0,,,,,,,18,33838.333333333336,False,3,3
+NonResidential,Small- and Mid-Sized Office,98108.0,2,GREATER DUWAMISH,47.55498,-122.32497,1953,1.0,1,24291,0,24291,Office,Office,24023.0,,,,,,,63,24291.0,False,1,2
+NonResidential,Supermarket / Grocery Store,98118.0,2,SOUTHEAST,47.52262,-122.26922,1959,1.0,1,67450,0,67450,Supermarket/Grocery Store,Supermarket/Grocery Store,42760.0,,,,,,,57,67450.0,False,0,4
+NonResidential,Large Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.6252,-122.36737,2009,1.0,4,291176,100176,191000,"Office, Parking",Office,194674.0,Parking,111198.0,,,,,7,72794.0,True,2,1
+NonResidential,Other,98105.0,4,NORTHEAST,47.66386,-122.31715,1924,1.0,2,21600,0,21600,"Other - Services, Retail Store",Other - Services,32580.0,Retail Store,9650.0,,,,,92,10800.0,True,3,3
+NonResidential,Distribution Center,98168.0,2,GREATER DUWAMISH,47.54187,-122.32714,1967,1.0,1,50065,0,50065,"Distribution Center, Parking",Distribution Center,49918.0,Parking,0.0,,,,,49,50065.0,True,0,2
+NonResidential,Senior Care Community,98101.0,7,DOWNTOWN,47.60898,-122.34213,1989,1.0,3,197395,156000,41395,"Office, Other - Public Services, Personal Services (Health/Beauty, Dry Cleaning, etc), Senior Care Community",Senior Care Community,38800.0,Other - Public Services,3650.0,Office,586.0,,,27,65798.33333333333,True,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,7,DOWNTOWN,47.60105,-122.33518,1900,1.0,3,44558,0,44558,"Office, Restaurant, Self-Storage Facility",Office,34416.0,Self-Storage Facility,7672.0,Restaurant,2470.0,,,116,14852.666666666666,True,2,2
+NonResidential,Senior Care Community,98109.0,7,MAGNOLIA / QUEEN ANNE,47.6441,-122.34795,1970,1.0,2,46539,0,46539,Senior Care Community,Senior Care Community,46539.0,,,,,,,46,23269.5,False,2,2
+NonResidential,Medical Office,98105.0,4,NORTHEAST,47.65884,-122.3183,1994,1.0,4,191276,95281,95995,Medical Office,Medical Office,95995.0,,,,,,,22,47819.0,False,3,3
+NonResidential,Large Office,98103.0,4,LAKE UNION,47.64776,-122.33924,2001,1.0,3,103697,47656,56041,Office,Office,63199.0,,,,,,,15,34565.666666666664,False,3,2
+NonResidential,Hotel,98121.0,7,DOWNTOWN,47.61471,-122.34525,1990,1.0,5,57800,0,57800,Hotel,Hotel,57800.0,,,,,,,26,11560.0,False,2,2
+NonResidential,Warehouse,98108.0,1,GREATER DUWAMISH,47.52549,-122.33064,1979,1.0,1,48020,0,48020,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,47800.0,,,,,,,37,48020.0,False,0,2
+NonResidential,Mixed Use Property,98103.0,4,LAKE UNION,47.66113,-122.33572,1904,1.0,2,53002,0,53002,"Multifamily Housing, Parking, Restaurant, Retail Store",Retail Store,31602.0,Parking,27427.0,Multifamily Housing,18130.0,,,112,26501.0,True,3,2
+NonResidential,Small- and Mid-Sized Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.63128,-122.37387,1940,1.0,2,20671,0,20671,Office,Office,20671.0,,,,,,,76,10335.5,False,2,1
+NonResidential,Mixed Use Property,98104.0,7,DOWNTOWN,47.60121,-122.33518,1902,1.0,6,74211,0,74211,"Multifamily Housing, Office, Parking",Office,33279.0,Multifamily Housing,29878.0,Parking,8421.0,,,114,12368.5,True,2,2
+NonResidential,Other,98108.0,2,GREATER DUWAMISH,47.55168,-122.32459,1970,1.0,1,26400,0,26400,"Non-Refrigerated Warehouse, Other - Recreation",Other - Recreation,20560.0,Non-Refrigerated Warehouse,7200.0,,,,,46,26400.0,True,0,2
+NonResidential,Other,98101.0,7,DOWNTOWN,47.61319,-122.33695,1955,1.0,2,31890,0,31890,Financial Office,Financial Office,31160.0,,,,,,,61,15945.0,False,2,2
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.5843,-122.32229,2014,1.0,2,56988,0,56988,"Automobile Dealership, Parking",Automobile Dealership,24520.0,Parking,0.0,,,,,2,28494.0,True,1,2
+NonResidential,Worship Facility,98125.0,5,North,47.71856,-122.32084,1961,1.0,2,76475,0,76475,"Other - Education, Worship Facility",Worship Facility,45442.0,Other - Education,31033.0,,,,,55,38237.5,True,4,3
+NonResidential,Large Office,98109.0,7,MAGNOLIA / QUEEN ANNE,47.63116,-122.34193,1986,1.0,5,154029,62380,91649,"Office, Parking",Office,91645.0,Parking,66288.0,,,,,30,30805.8,True,2,2
+NonResidential,Small- and Mid-Sized Office,98125.0,5,NORTH,47.72986,-122.29278,1985,1.0,3,33580,12990,20590,"Office, Parking",Office,20590.0,Parking,12990.0,,,,,31,11193.333333333334,True,4,3
+NonResidential,University,98122.0,3,EAST,47.61699,-122.32083,1993,1.0,2,99765,0,99765,College/University,College/University,99765.0,,,,,,,23,49882.5,False,2,3
+NonResidential,Self-Storage Facility,98134.0,2,GREATER DUWAMISH,47.58168,-122.33369,1925,1.0,2,25821,0,25821,Self-Storage Facility,Self-Storage Facility,25821.0,,,,,,,91,12910.5,False,1,2
+NonResidential,Warehouse,98108.0,2,GREATER DUWAMISH,47.55127,-122.32576,1969,1.0,1,20500,0,20500,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,21386.0,,,,,,,47,20500.0,False,0,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.57294,-122.32811,1952,1.0,1,39600,0,39600,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,39600.0,,,,,,,64,39600.0,False,1,2
+NonResidential,Small- and Mid-Sized Office,98108.0,2,GREATER DUWAMISH,47.54965,-122.3278,1964,1.0,1,53250,0,53250,"Office, Parking",Office,52759.0,Parking,0.0,,,,,52,53250.0,True,0,2
+NonResidential,Small- and Mid-Sized Office,98121.0,7,DOWNTOWN,47.61402,-122.35016,1917,1.0,2,21600,0,21600,"Office, Other - Lodging/Residential",Office,14400.0,Other - Lodging/Residential,7200.0,,,,,99,10800.0,True,2,2
+NonResidential,Small- and Mid-Sized Office,98133.0,5,NORTHWEST,47.70793,-122.33316,1982,1.0,2,27574,0,27574,Office,Office,27574.0,,,,,,,34,13787.0,False,4,2
+NonResidential,Retail Store,98121.0,7,DOWNTOWN,47.61812,-122.35509,1925,1.0,1,24825,1263,23562,"Non-Refrigerated Warehouse, Retail Store",Retail Store,13940.0,Non-Refrigerated Warehouse,10439.0,,,,,91,24825.0,True,2,1
+NonResidential,Large Office,98103.0,6,LAKE UNION,47.64822,-122.34848,1999,1.0,3,280957,114829,166128,"Data Center, Office, Parking, Restaurant",Office,152579.0,Parking,93893.0,Data Center,7500.0,2016201520142013201220112010,,17,93652.33333333333,True,3,2
+NonResidential,Small- and Mid-Sized Office,98119.0,7,MAGNOLIA / QUEEN ANNE,47.63156,-122.37551,1937,1.0,2,61929,0,61929,Office,Office,39879.0,,,,,,,79,30964.5,False,2,1
+NonResidential,Other,98113.0,5,NORTHWEST,47.70197,-122.34219,1986,1.0,1,33392,0,33392,Movie Theater,Movie Theater,33392.0,,,,,,,30,33392.0,False,4,2
+NonResidential,Small- and Mid-Sized Office,98101.0,7,DOWNTOWN,47.60995,-122.33904,1906,1.0,4,63540,0,63540,Office,Office,56747.0,,,,,,,110,15885.0,False,2,2
+NonResidential,Medical Office,98122.0,3,CENTRAL,47.60132,-122.30477,1990,1.0,2,39000,0,39000,Medical Office,Medical Office,39000.0,,,,,,,26,19500.0,False,2,3
+NonResidential,Small- and Mid-Sized Office,98134.0,2,GREATER DUWAMISH,47.55623,-122.33316,1938,1.0,1,50008,0,50008,Office,Office,50008.0,,,,,,,78,50008.0,False,1,2
+NonResidential,Small- and Mid-Sized Office,98144.0,3,GREATER DUWAMISH,47.59388,-122.31124,1970,1.0,1,65430,0,65430,"Office, Other",Office,60732.0,Other,8142.0,,,,,46,65430.0,True,1,3
+NonResidential,Large Office,98109.0,3,LAKE UNION,47.62958,-122.32826,2001,1.0,7,139200,44728,94472,Office,Office,82098.0,,,,,,,15,19885.714285714286,False,2,2
+NonResidential,Large Office,98109.0,7,LAKE UNION,47.62112,-122.33629,2010,1.0,12,571329,0,571329,"Office, Other, Parking",Office,598801.0,Parking,310699.0,Other,26203.0,,,6,47610.75,True,2,2
+NonResidential,Warehouse,98104.0,2,DOWNTOWN,47.59774,-122.31936,1930,1.0,1,23903,0,23903,"Non-Refrigerated Warehouse, Worship Facility",Non-Refrigerated Warehouse,18350.0,Worship Facility,4500.0,,,,,86,23903.0,True,1,3
+NonResidential,Hotel,98109.0,7,MAGNOLIA / QUEEN ANNE,47.62562,-122.35121,2008,1.0,5,111856,21273,90583,"Hotel, Parking, Restaurant, Swimming Pool",Hotel,92000.0,Parking,20000.0,Restaurant,4006.0,,,8,22371.2,True,2,2
+NonResidential,Small- and Mid-Sized Office,98104.0,2,DOWNTOWN,47.59895,-122.33379,1904,1.0,5,78920,0,78920,Office,Office,78564.0,,,,,2017,,112,15784.0,False,1,2
+NonResidential,Supermarket / Grocery Store,98144.0,3,CENTRAL,47.59881,-122.30189,1980,1.0,1,30630,0,30630,"Other, Supermarket/Grocery Store",Supermarket/Grocery Store,28470.0,Other,2442.0,,,,,36,30630.0,True,1,3
+NonResidential,Hotel,98101.0,7,DOWNTOWN,47.61784,-122.32966,2001,1.0,10,171866,38281,133585,Hotel,Hotel,128909.0,,,,,,,15,17186.6,False,2,2
+NonResidential,Hospital,98122.0,3,CENTRAL,47.60705,-122.30966,1990,6.0,5,597519,0,597519,"Hospital (General Medical & Surgical), Parking",Hospital (General Medical & Surgical),601615.0,Parking,48607.0,,,,,26,119503.8,True,2,3
+NonResidential,Small- and Mid-Sized Office,98133.0,5,NORTHWEST,47.72004,-122.34418,1951,1.0,2,39815,0,39815,"Non-Refrigerated Warehouse, Office",Office,27118.0,Non-Refrigerated Warehouse,12697.0,,,,,65,19907.5,True,4,2
+NonResidential,Retail Store,98103.0,6,LAKE UNION,47.65019,-122.35013,1906,1.0,3,27480,0,27480,"Office, Retail Store",Retail Store,22218.0,Office,8668.0,,,,,110,9160.0,True,3,2
+NonResidential,Large Office,98109.0,7,LAKE UNION,47.63,-122.3396,1971,1.0,11,124721,0,124721,"Food Service, Office, Parking, Restaurant",Office,107594.0,Restaurant,15600.0,Parking,12000.0,,,45,11338.272727272728,True,2,2
+NonResidential,Worship Facility,98119.0,7,MAGNOLIA / QUEEN ANNE,47.62232,-122.36101,1955,1.0,5,31945,0,31945,"Parking, Worship Facility",Worship Facility,31945.0,Parking,0.0,,,,,61,6389.0,True,2,1
+NonResidential,Retail Store,98133.0,5,NORTHWEST,47.71417,-122.34256,1995,1.0,1,101830,0,101830,Retail Store,Retail Store,130767.0,,,,,,,21,101830.0,False,4,2
+NonResidential,Retail Store,98118.0,2,SOUTHEAST,47.54723,-122.28455,1966,1.0,1,37883,0,37883,"Retail Store, Supermarket/Grocery Store",Retail Store,28734.0,Supermarket/Grocery Store,24813.0,,,,,50,37883.0,True,0,4
+NonResidential,Restaurant,98109.0,3,LAKE UNION,47.62902,-122.33173,1978,1.0,2,26519,0,26519,"Office, Restaurant",Restaurant,13592.0,Office,12927.0,,,,,38,13259.5,True,2,2
+NonResidential,Supermarket / Grocery Store,98109.0,7,MAGNOLIA / QUEEN ANNE,47.62473,-122.34727,2006,1.0,4,45980,0,45980,Supermarket/Grocery Store,Supermarket/Grocery Store,45980.0,,,,,2013,,10,11495.0,False,2,2
+NonResidential,Mixed Use Property,98109.0,7,LAKE UNION,47.62296,-122.33884,1920,1.0,2,25920,0,25920,"Office, Other, Other - Services, Residence Hall/Dormitory, Restaurant",Office,10109.0,Other - Services,7016.0,Restaurant,3609.0,,,96,12960.0,True,2,2
+NonResidential,Small- and Mid-Sized Office,98134.0,2,GREATER DUWAMISH,47.59508,-122.33378,1920,1.0,2,20150,0,20150,Office,Office,20150.0,,,,,,,96,10075.0,False,1,2
+NonResidential,K-12 School,98115.0,5,NORTHEAST,47.694,-122.28967,1949,1.0,2,43645,0,43645,K-12 School,K-12 School,37000.0,,,,,,,67,21822.5,False,4,4
+NonResidential,Warehouse,98122.0,3,CENTRAL,47.60224,-122.31529,1954,1.0,1,42000,0,42000,"Non-Refrigerated Warehouse, Office",Non-Refrigerated Warehouse,38000.0,Office,4000.0,,,,,62,42000.0,True,2,3
+NonResidential,Distribution Center,98108.0,2,GREATER DUWAMISH,47.54868,-122.3255,1963,1.0,1,59090,0,59090,"Distribution Center, Office",Distribution Center,40272.0,Office,18818.0,,,,,53,59090.0,True,0,2
+NonResidential,Supermarket / Grocery Store,98119.0,7,MAGNOLIA / QUEEN ANNE,47.63718,-122.37734,2008,1.0,1,57176,0,57176,"Personal Services (Health/Beauty, Dry Cleaning, etc), Retail Store, Supermarket/Grocery Store",Supermarket/Grocery Store,39500.0,Retail Store,15000.0,"Personal Services (Health/Beauty, Dry Cleaning, etc)",5500.0,,,8,57176.0,True,2,1
+NonResidential,Large Office,98101.0,7,DOWNTOWN,47.61003,-122.33452,1958,1.0,10,135918,0,135918,Office,Office,144570.0,,,,,,,58,13591.8,False,2,2
+NonResidential,Small- and Mid-Sized Office,98122.0,3,EAST,47.61545,-122.3238,1922,1.0,3,27600,0,27600,"Office, Retail Store",Office,13175.0,Retail Store,9175.0,,,,,94,9200.0,True,2,2
+NonResidential,Other,98122.0,3,CENTRAL,47.60462,-122.31549,1971,3.0,6,250981,0,250981,"Courthouse, Other",Other,137565.0,Courthouse,78357.0,,,,,45,41830.166666666664,True,2,3
+NonResidential,Worship Facility,98115.0,4,NORTHEAST,47.67816,-122.28998,1955,1.0,1,29079,0,29079,Worship Facility,Worship Facility,29079.0,,,,,,,61,29079.0,False,3,4
+NonResidential,Small- and Mid-Sized Office,98122.0,3,EAST,47.61371,-122.31774,2015,1.0,5,37873,0,37873,"Multifamily Housing, Office, Parking, Restaurant, Retail Store",Office,25927.0,Parking,5834.0,Multifamily Housing,5160.0,,,1,7574.6,True,2,3
+NonResidential,K-12 School,98105.0,4,NORTHEAST,47.66568,-122.31368,1928,1.0,2,55653,0,55653,K-12 School,K-12 School,55500.0,,,,,,,88,27826.5,False,3,3
+NonResidential,Warehouse,98108.0,1,GREATER DUWAMISH,47.53326,-122.32579,1953,1.0,1,42420,0,42420,"Non-Refrigerated Warehouse, Office, Other",Non-Refrigerated Warehouse,27420.0,Other,10000.0,Office,5000.0,,,63,42420.0,True,0,2
+NonResidential,Distribution Center,98106.0,1,DELRIDGE,47.55105,-122.34695,1971,2.0,2,28368,0,28368,"Distribution Center, Office",Distribution Center,35300.0,Office,9408.0,,,,,45,14184.0,True,0,2
+NonResidential,Warehouse,98144.0,3,DOWNTOWN,47.59783,-122.31554,1956,1.0,2,25840,0,25840,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,25840.0,,,,,,,60,12920.0,False,1,3
+NonResidential,Restaurant,98101.0,7,DOWNTOWN,47.60613,-122.34115,1900,1.0,1,43728,0,43728,Restaurant,Restaurant,43728.0,,,,,,,116,43728.0,False,2,2
+NonResidential,Mixed Use Property,98121.0,7,DOWNTOWN,47.61811,-122.33908,2009,1.0,19,1206670,201857,1004813,"Multifamily Housing, Office, Parking, Restaurant",Office,319361.0,Multifamily Housing,181047.0,Parking,177210.0,20162015,,7,63508.94736842105,True,2,2
+NonResidential,Mixed Use Property,98011.0,7,DOWNTOWN,47.61056,-122.33661,1909,1.0,11,111137,0,111137,"Bank Branch, Multifamily Housing, Office, Other, Retail Store",Office,42939.0,Multifamily Housing,40878.0,Bank Branch,10887.0,,,107,10103.363636363636,True,2,2
+NonResidential,Distribution Center,98108.0,1,DELRIDGE,47.53158,-122.33568,1979,1.0,1,42900,0,42900,Distribution Center,Distribution Center,43050.0,,,,,,,37,42900.0,False,0,2
+NonResidential,Other,98134.0,2,GREATER DUWAMISH,47.55787,-122.335,2000,1.0,1,53040,41600,11440,Other,Other,51427.0,,,,,,,16,53040.0,False,1,2
+NonResidential,Mixed Use Property,98104.0,7,DOWNTOWN,47.60427,-122.33385,1978,1.0,2,38539,12379,26160,"Office, Parking, Retail Store",Retail Store,15549.0,Parking,12379.0,Office,10611.0,,,38,19269.5,True,2,2
+NonResidential,Worship Facility,98115.0,4,NORTHEAST,47.67984,-122.27739,1946,1.0,1,24295,0,24295,Worship Facility,Worship Facility,24295.0,,,,,,,70,24295.0,False,3,4
+NonResidential,Small- and Mid-Sized Office,98122.0,3,EAST,47.60819,-122.32282,1956,1.0,3,21282,0,21282,Office,Office,19658.0,,,,,,,60,7094.0,False,2,2
+NonResidential,Hotel,98101.0,7,DOWNTOWN,47.61665,-122.33261,2015,1.0,14,144614,0,144614,Hotel,Hotel,159500.0,,,,,,,1,10329.57142857143,False,2,2
+NonResidential,Small- and Mid-Sized Office,98134.0,2,GREATER DUWAMISH,47.56121,-122.33872,1983,1.0,2,23687,0,23687,Office,Office,23687.0,,,,,,,33,11843.5,False,1,2
+NonResidential,Residence Hall,98177.0,4,NORTHEAST,47.66281,-122.30819,1950,1.0,3,29084,0,29084,Residence Hall/Dormitory,Residence Hall/Dormitory,26000.0,,,,,,,66,9694.666666666666,False,3,3
+NonResidential,Large Office,98101.0,7,DOWNTOWN,47.61036,-122.34037,1908,1.0,10,132998,0,132998,"Office, Retail Store",Office,138257.0,Retail Store,0.0,,,,,108,13299.8,True,2,2
+NonResidential,Warehouse,98134.0,2,GREATER DUWAMISH,47.56683,-122.33358,1941,1.0,2,22324,0,22324,Non-Refrigerated Warehouse,Non-Refrigerated Warehouse,21000.0,,,,,,,75,11162.0,False,1,2
+NonResidential,Residence Hall,98195.0,4,NORTHEAST,47.65599,-122.31385,2012,1.0,7,192259,0,192259,"Residence Hall/Dormitory, Supermarket/Grocery Store",Residence Hall/Dormitory,188118.0,Supermarket/Grocery Store,7000.0,,,,,4,27465.571428571428,True,3,3
+NonResidential,Retail Store,98101.0,7,DOWNTOWN,47.60956,-122.33715,1940,1.0,3,83118,0,83118,Retail Store,Retail Store,45000.0,,,,,,,76,27706.0,False,2,2
+NonResidential,Mixed Use Property,98122.0,3,Central,47.61608,-122.30967,2004,1.0,6,97229,0,97229,"Multifamily Housing, Parking, Retail Store",Multifamily Housing,45300.0,Parking,35973.0,Retail Store,16956.0,,,12,16204.833333333334,True,2,3
+NonResidential,Supermarket / Grocery Store,98116.0,1,SOUTHWEST,47.57984,-122.38577,2011,1.0,1,67263,0,67263,Supermarket/Grocery Store,Supermarket/Grocery Store,67263.0,,,,,,,5,67263.0,False,1,0
+NonResidential,K-12 School,98116.0,1,SOUTHWEST,47.56504,-122.38455,1965,1.0,3,49744,0,49744,K-12 School,K-12 School,49744.0,,,,,,,51,16581.333333333332,False,1,0
+NonResidential,Other,98101.0,3,EAST,47.61109,-122.32721,1920,1.0,3,30971,0,30971,Other,Other,30971.0,,,,,,,96,10323.666666666666,False,2,2

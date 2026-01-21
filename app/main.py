@@ -1,10 +1,10 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 import pandas as pd
-from app.schemas.p3_request import EnergyRequest, PredictionResponse, PredictionHistoryResponse
+from app.schemas.p3_request import EnergyRequest, PredictionResponse, PredictionHistoryResponse, DatasetResponse, PredictionWithDatasetResponse
 from app.services.p3_model import EnergyModel
 from app.core.database import get_db
-from app.models import EnergyPrediction
+from app.models import EnergyDataset, EnergyPrediction
 
 app = FastAPI(title="Futurisys ML API", version="0.1.0")
 
@@ -39,8 +39,8 @@ def predict_energy(payload: EnergyRequest, db: Session = Depends(get_db)):
     df = pd.DataFrame([data])
     y = EnergyModel.predict(df)
     
-    # Log prediction to database
-    prediction_record = EnergyPrediction(
+    # 1. First, add the data to EnergyDataset
+    dataset_record = EnergyDataset(
         building_type=payload.BuildingType,
         primary_property_type=payload.PrimaryPropertyType,
         zip_code=payload.ZipCode,
@@ -68,13 +68,21 @@ def predict_energy(payload: EnergyRequest, db: Session = Depends(get_db)):
         is_multi_use=int(payload.IsMultiUse),
         lat_zone=payload.LatZone,
         lon_zone=payload.LonZone,
+    )
+    db.add(dataset_record)
+    db.flush()  # Get the ID without committing
+    dataset_id = dataset_record.id
+    
+    # 2. Then, add the prediction with the dataset_id
+    prediction_record = EnergyPrediction(
+        dataset_id=dataset_id,
         prediction=float(y)
     )
     db.add(prediction_record)
     db.commit()
     db.refresh(prediction_record)
     
-    return {"prediction": y}
+    return {"prediction": y, "dataset_id": dataset_id}
 
 
 @app.get("/api/p3/history", response_model=PredictionHistoryResponse)
@@ -93,9 +101,9 @@ def get_prediction_history(
     }
 
 
-@app.get("/api/p3/prediction/{prediction_id}", response_model=PredictionResponse)
+@app.get("/api/p3/prediction/{prediction_id}", response_model=PredictionWithDatasetResponse)
 def get_prediction(prediction_id: int, db: Session = Depends(get_db)):
-    """Get a specific prediction by ID."""
+    """Get a specific prediction by ID with its dataset details."""
     prediction = db.query(EnergyPrediction).filter(
         EnergyPrediction.id == prediction_id
     ).first()
@@ -104,3 +112,16 @@ def get_prediction(prediction_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Prediction not found")
     
     return prediction
+
+
+@app.get("/api/p3/dataset/{dataset_id}", response_model=DatasetResponse)
+def get_dataset(dataset_id: int, db: Session = Depends(get_db)):
+    """Get a specific dataset record by ID."""
+    dataset = db.query(EnergyDataset).filter(
+        EnergyDataset.id == dataset_id
+    ).first()
+    
+    if not dataset:
+        raise HTTPException(status_code=404, detail="Dataset record not found")
+    
+    return dataset

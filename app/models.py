@@ -1,18 +1,19 @@
 """SQLAlchemy models for database tables."""
 
 from datetime import datetime
-from sqlalchemy import Column, Integer, Float, String, DateTime, JSON
+from sqlalchemy import Column, Integer, Float, String, DateTime, JSON, ForeignKey
+from sqlalchemy.orm import relationship
 from app.core.database import Base
 
 
-class EnergyPrediction(Base):
-    """Model for storing energy consumption predictions."""
+class EnergyDataset(Base):
+    """Model for storing all energy dataset records."""
     
-    __tablename__ = "energy_predictions"
+    __tablename__ = "energy_dataset"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     
-    # Input features (stored as JSON for flexibility)
+    # All input features
     building_type = Column(String, nullable=False)
     primary_property_type = Column(String, nullable=False)
     zip_code = Column(Integer, nullable=False)
@@ -37,15 +38,37 @@ class EnergyPrediction(Base):
     outlier = Column(String, nullable=False)
     building_age = Column(Float, nullable=False)
     surface_per_floor = Column(Float, nullable=False)
-    is_multi_use = Column(Integer, nullable=False)  # Boolean stored as int
+    is_multi_use = Column(Integer, nullable=False)
     lat_zone = Column(Integer, nullable=False)
     lon_zone = Column(Integer, nullable=False)
     
+    # Relationship
+    predictions = relationship("EnergyPrediction", back_populates="dataset")
+    
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    
+    def __repr__(self):
+        return f"<EnergyDataset(id={self.id}, created_at={self.created_at})>"
+
+
+class EnergyPrediction(Base):
+    """Model for storing energy consumption predictions."""
+    
+    __tablename__ = "energy_predictions"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    
+    # Foreign key to dataset
+    dataset_id = Column(Integer, ForeignKey("energy_dataset.id"), nullable=False)
+    
     # Prediction output
     prediction = Column(Float, nullable=False)
+    
+    # Relationship
+    dataset = relationship("EnergyDataset", back_populates="predictions")
     
     # Metadata
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     
     def __repr__(self):
-        return f"<EnergyPrediction(id={self.id}, prediction={self.prediction}, created_at={self.created_at})>"
+        return f"<EnergyPrediction(id={self.id}, dataset_id={self.dataset_id}, prediction={self.prediction}, created_at={self.created_at})>"
