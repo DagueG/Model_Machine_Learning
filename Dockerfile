@@ -15,6 +15,7 @@ RUN pip install uv && uv sync
 # Copy application (model will be downloaded at runtime)
 COPY app ./app
 COPY create_db.py .
+COPY data ./data
 RUN mkdir -p models
 
 # Initialize database

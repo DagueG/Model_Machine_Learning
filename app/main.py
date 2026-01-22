@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 import pandas as pd
-from app.schemas.p3_request import EnergyRequest, PredictionResponse, PredictionHistoryResponse, DatasetResponse, PredictionWithDatasetResponse
+from app.schemas.p3_request import EnergyRequest, PredictionResponse, PredictionHistoryResponse, DatasetResponse
 from app.services.p3_model import EnergyModel
 from app.core.database import get_db
 from app.models import EnergyDataset, EnergyPrediction
@@ -70,17 +70,17 @@ def predict_energy(payload: EnergyRequest, db: Session = Depends(get_db)):
         lon_zone=payload.LonZone,
     )
     db.add(dataset_record)
-    db.commit()  # Commit dataset first to get its ID
-    db.refresh(dataset_record)
+    db.flush()  # Get the ID without committing
     dataset_id = dataset_record.id
     
-    # 2. Then, add the prediction with the same ID
+    # 2. Then, add the prediction with the dataset_id
     prediction_record = EnergyPrediction(
-        id=dataset_id,  # Use dataset_id as the prediction id
+        dataset_id=dataset_id,
         prediction=float(y)
     )
     db.add(prediction_record)
     db.commit()
+    db.refresh(prediction_record)
     
     return {"prediction": y, "dataset_id": dataset_id}
 
@@ -99,29 +99,6 @@ def get_prediction_history(
         "total": total,
         "predictions": predictions
     }
-
-
-@app.get("/api/p3/prediction/{prediction_id}", response_model=PredictionWithDatasetResponse)
-def get_prediction(prediction_id: int, db: Session = Depends(get_db)):
-    """Get a specific dataset record by ID with its prediction details."""
-    dataset = db.query(EnergyDataset).filter(
-        EnergyDataset.id == prediction_id
-    ).first()
-    
-    if not dataset:
-        raise HTTPException(status_code=404, detail="Dataset record not found")
-    
-    # Get the prediction if it exists
-    prediction = db.query(EnergyPrediction).filter(
-        EnergyPrediction.id == prediction_id
-    ).first()
-    
-    # Return the dataset with prediction if it exists
-    if prediction:
-        return prediction
-    else:
-        # If no prediction, return the dataset without prediction info
-        raise HTTPException(status_code=404, detail="Prediction not found for this dataset")
 
 
 @app.get("/api/p3/dataset/{dataset_id}", response_model=DatasetResponse)

@@ -68,20 +68,11 @@ class DatasetResponse(BaseModel):
 
 
 class PredictionResponse(BaseModel):
-    """Response model for a single prediction (which is just a dataset with prediction)."""
+    """Response model for a single prediction."""
     id: int
+    dataset_id: int
     prediction: float
     created_at: datetime
-    
-    model_config = ConfigDict(from_attributes=True)
-
-
-class PredictionWithDatasetResponse(BaseModel):
-    """Response model for prediction with full dataset details."""
-    id: int
-    prediction: float
-    created_at: datetime
-    dataset: DatasetResponse
     
     model_config = ConfigDict(from_attributes=True)
 
