@@ -1,585 +1,515 @@
-# 🏢 Futurisys ML Deploy - Prédiction de Consommation Énergétique
+---
+title: Energy Consumption ML Model
+emoji: 🏢
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
 
 ![CI](https://github.com/DagueG/Model_Machine_Learning/actions/workflows/ci.yml/badge.svg)
-![Python](https://img.shields.io/badge/Python-3.11+-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.119.1-green)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 
-Une **API FastAPI** pour le déploiement et la prédiction d'un modèle de Machine Learning capable de prédire la consommation énergétique des bâtiments en temps réel.
+# Futurisys ML Deploy 🚀
 
-**🌐 API Déployée:** https://huggingface.co/spaces/DagueGG/model-machine-learning
+Une API FastAPI pour le déploiement et la prédiction d'un modèle de Machine Learning capable de prédire la consommation énergétique des bâtiments.
 
----
-
-## 📋 Table des Matières
-
-- [Objectif du Projet](#objectif-du-projet)
-- [Fonctionnalités](#fonctionnalités)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Utilisation](#utilisation)
-- [Structure du Projet](#structure-du-projet)
-- [Tests et Couverture](#tests-et-couverture)
-- [API Documentation](#api-documentation)
-- [Déploiement](#déploiement)
-- [CI/CD Pipeline](#cicd-pipeline)
-- [Contribution](#contribution)
-- [Livrables](#livrables)
-
----
-
-## 🎯 Objectif du Projet
-
-Déployer un modèle de Machine Learning (**Random Forest Regressor**) entraîné pour prédire la consommation énergétique des bâtiments. Le projet démontre :
-
-✅ Une **API REST** moderne et documentée  
-✅ Une **base de données PostgreSQL** pour stocker prédictions et historique  
-✅ Une **couverture de tests** complète avec pytest  
-✅ Un **pipeline CI/CD** avec GitHub Actions  
-✅ Un **déploiement automatisé** sur Hugging Face Spaces  
-✅ Une gestion des versions et des branches structurée  
-
----
-
-## ⚡ Fonctionnalités
-
-### 🔌 Endpoints API
-
-| Endpoint | Méthode | Description |
-|----------|---------|-------------|
-| `/` | GET | Endpoint racine avec infos de l'API |
-| `/health` | GET | Vérification de santé de l'API et du modèle |
-| `/docs` | GET | Documentation Swagger interactive |
-| `/redoc` | GET | Documentation ReDoc interactive |
-| `/api/p3/predict` | POST | Prédiction de consommation énergétique |
-| `/api/p3/prediction/{id}` | GET | Récupération d'une prédiction spécifique |
-| `/api/p3/predictions` | GET | Historique des prédictions |
-| `/api/p3/dataset` | GET | Accès à l'historique des données |
-
-### 🤖 Modèle ML
-
-- **Type:** Random Forest Regressor
-- **Features:** 12 variables incluant type de bâtiment, zone géographique, latitude/longitude
-- **Performance:** Entraîné et validé sur données réelles
-
-### 💾 Persistance
-
-- **Base de données:** PostgreSQL 16
-- **Tables:** `energy_dataset`, `energy_prediction`
-- **ORM:** SQLAlchemy
-- **Migrations:** Schéma créé automatiquement
-
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────┐
-│         Hugging Face Spaces (Production)         │
-│         https://huggingface.co/spaces/...        │
-└────────────────┬────────────────────────────────┘
-                 │
-                 ▼
-        ┌────────────────────┐
-        │   FastAPI App      │
-        │  (Uvicorn Server)  │
-        └────────┬───────────┘
-                 │
-      ┌──────────┴──────────┐
-      ▼                     ▼
-  ┌────────┐         ┌──────────────┐
-  │ Model  │         │ PostgreSQL   │
-  │ (.pkl) │         │   (Database) │
-  └────────┘         └──────────────┘
-      │                     │
-      └──────────┬──────────┘
-                 ▼
-      ┌──────────────────────┐
-      │  GitHub (Versioning) │
-      │  & GitHub Actions    │
-      └──────────────────────┘
-```
-
----
-
-## 📦 Installation
-
-### 1. Prérequis
-
-- **Python** ≥ 3.11
-- **[uv](https://docs.astral.sh/uv/)** - Gestionnaire de paquets moderne
-- **Docker & Docker Compose** - Pour PostgreSQL local
-- **Git** - Contrôle de version
-
-### 2. Cloner le Dépôt
-
-```bash
-git clone https://github.com/DagueG/Model_Machine_Learning.git
-cd Model_Machine_Learning
-```
-
-### 3. Installer les Dépendances
-
-```bash
-# Initialiser l'environnement virtuel
-uv sync
-
-# Activer l'environnement (optionnel, uv run le fait automatiquement)
-source .venv/bin/activate  # Linux/Mac
-# ou
-.venv\Scripts\activate  # Windows
-```
-
-### 4. Configurer la Base de Données
-
-```bash
-# Démarrer PostgreSQL avec Docker
-docker-compose up -d
-
-# Initialiser le schéma
-uv run python create_db.py
-
-# Vérifier le statut
-docker-compose ps
-```
-
-### 5. Télécharger le Modèle
-
-Le modèle ML est stocké dans `models/model_p3.joblib`. 
-
-- **En local:** Le fichier doit être présent dans le répertoire `models/`
-- **En production (HF Spaces):** Téléchargé automatiquement depuis GitHub Releases
-
----
-
-## ⚙️ Configuration
-
-### Variables d'Environnement
-
-Créez un fichier `.env` à la racine du projet (template : `.env.example`) :
-
-```env
-# Base de Données
-DATABASE_URL=postgresql://futurisys_user:futurisys_password@localhost:5432/futurisys_db
-
-# API Configuration
-API_TITLE=Futurisys ML API
-API_VERSION=0.1.0
-LOG_LEVEL=INFO
-```
-
-### Structure de Configuration
-
-| Variable | Description | Valeur par Défaut |
-|----------|-------------|-------------------|
-| `DATABASE_URL` | Connexion PostgreSQL | `postgresql://...@localhost:5432/...` |
-| `API_TITLE` | Titre de l'API | `Futurisys ML API` |
-| `API_VERSION` | Version API | `0.1.0` |
-| `LOG_LEVEL` | Niveau de log | `INFO` |
-
----
-
-## 🚀 Utilisation
-
-### Démarrer Localement
-
-```bash
-# Terminal 1 : PostgreSQL
-docker-compose up -d
-
-# Terminal 2 : Serveur FastAPI
-uv run uvicorn app.main:app --reload --port 8000
-```
-
-### Accès à l'API
-
-- **API Root:** http://localhost:8000
-- **Swagger UI:** http://localhost:8000/docs
-- **ReDoc:** http://localhost:8000/redoc
-
-### Exemple de Requête Predict
-
-```bash
-curl -X POST "http://localhost:8000/api/p3/predict" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "BuildingType": "Office",
-    "PrimaryPropertyType": "Office",
-    "ZipCode": 75001,
-    "CouncilDistrictCode": 1,
-    "Neighborhood": "Marais",
-    "Latitude": 48.8624,
-    "Longitude": 2.3522,
-    "YearBuilt": 1990,
-    "NumberofFloors": 5,
-    "PropertyGFABuildings": 5000,
-    "SiteEnergyUseIntensity": 150.5,
-    "SourceEnergyUseIntensity": 250.3
-  }'
-```
-
-### Exemple de Réponse
-
-```json
-{
-  "prediction_id": 1,
-  "predicted_energy_consumption": 1245.75,
-  "building_type": "Office",
-  "created_at": "2025-01-12T15:30:45.123456"
-}
-```
-
+## 📋 Objectif
+Déployer un modèle de ML (Random Forest) derrière une API FastAPI pour fournir des prédictions en temps réel sur la consommation énergétique des propriétés.
 ---
 
 ## 📁 Structure du Projet
 
 ```
 Model_Machine_Learning/
-├── 📁 app/
-│   ├── main.py                      # Application FastAPI + endpoints
-│   ├── models.py                    # Modèles SQLAlchemy (DB)
-│   ├── 📁 core/
-│   │   ├── __init__.py
-│   │   └── database.py              # Configuration SQLAlchemy
-│   ├── 📁 schemas/
-│   │   └── p3_request.py            # Schémas Pydantic (validation)
-│   └── 📁 services/
-│       └── p3_model.py              # Service ML (chargement/prédiction)
-│
-├── 📁 tests/
-│   ├── conftest.py                  # Fixtures pytest
-│   ├── 📁 unit/
-│   │   └── test_health.py           # Tests unitaires
-│   └── 📁 integration/
-│       ├── test_p3_dataset.py       # Tests dataset
-│       └── test_p3_predict.py       # Tests prédiction + DB
-│
-├── 📁 models/
-│   └── model_p3.joblib              # Modèle ML sérialisé
-│
-├── 📁 data/
-│   ├── X_test.csv                   # Features test
-│   └── y_test.csv                   # Labels test
-│
-├── 📁 .github/
-│   └── 📁 workflows/
-│       └── ci.yml                   # Pipeline CI/CD GitHub Actions
-│
-├── 📄 pyproject.toml                # Dépendances + config projet
-├── 📄 uv.lock                       # Lock file (dépendances figées)
-├── 📄 docker-compose.yml            # Config PostgreSQL
-├── 📄 Dockerfile                    # Image Docker pour déploiement
-├── 📄 create_db.py                  # Initialisation base de données
-├── 📄 .env.example                  # Template variables d'env
-├── 📄 .gitignore                    # Fichiers ignorés Git
-└── 📄 README.md                     # Ce fichier
+├── app/
+│   ├── main.py                 # Application FastAPI principale avec tous les endpoints
+│   ├── models.py               # Modèles SQLAlchemy pour la base de données
+│   ├── schemas/
+│   │   └── p3_request.py       # Modèles Pydantic pour la validation des requêtes
+│   ├── services/
+│   │   └── p3_model.py         # Classe de service pour charger et utiliser le modèle ML
+│   ├── core/
+│   │   ├── database.py         # Configuration SQLAlchemy et session management
+│   │   └── __init__.py
+│   └── __pycache__/
+├── models/
+│   └── model_p3.joblib         # Modèle ML sérialisé (Random Forest)
+├── tests/
+│   ├── unit/
+│   │   └── test_health.py      # Tests unitaires pour l'endpoint /health
+│   ├── integration/
+│   │   └── test_p3_predict.py  # Tests d'intégration pour l'endpoint /predict et DB
+│   └── __pycache__/
+├── docker-compose.yml          # Configuration PostgreSQL avec Docker
+├── create_db.py                # Script d'initialisation de la base de données
+├── .env                        # Variables d'environnement (local)
+├── .env.example                # Template des variables d'environnement
+├── pyproject.toml              # Configuration du projet et dépendances
+└── README.md                   # Documentation du projet
 ```
 
 ---
 
-## 🧪 Tests et Couverture
+## 🛠️ Installation
 
-### Exécuter les Tests
+### Prérequis
+- Python >= 3.11
+- [uv](https://docs.astral.sh/uv/) (gestionnaire de paquets Python)
+- Docker & Docker Compose (pour PostgreSQL)
+
+### Étapes d'installation
 
 ```bash
-# Tous les tests avec rapport de couverture
-uv run pytest -v --cov=app --cov-report=term-missing
+# 1. Initialiser l'environnement virtuel avec Python 3.11
+uv init --python 3.11
 
-# Tests spécifiques
-uv run pytest tests/unit/ -v                    # Unitaires
-uv run pytest tests/integration/ -v             # Intégration
+# 2. Installer toutes les dépendances du projet
+uv sync
 
-# Avec rapport HTML
+# 3. Copier le fichier .env
+cp .env.example .env
+
+# 4. Démarrer PostgreSQL avec Docker
+docker-compose up -d
+
+# 5. Initialiser la base de données
+uv run python create_db.py
+```
+
+### Vérification du statut PostgreSQL
+```bash
+docker-compose ps
+```
+
+### Arrêter PostgreSQL
+```bash
+docker-compose down
+```
+
+---
+
+## 🚀 Lancer le Projet Localement
+
+### Démarrer le serveur FastAPI
+```bash
+uv run uvicorn app.main:app --reload
+```
+
+Le serveur sera accessible sur `http://localhost:8000`
+
+### Accès à la documentation interactive
+- **Swagger UI**: https://daguegg-model-machine-learning.hf.space/docs
+- **ReDoc**: https://daguegg-model-machine-learning.hf.space/redoc
+
+---
+
+## 📡 Endpoints disponibles
+
+### 1. **Vérification de santé**
+```http
+GET /health
+```
+
+**Réponse réussie (200)**:
+```json
+{
+  "status": "ok",
+  "message": "API en ligne 🚀"
+}
+```
+
+---
+
+### 2. **Prédiction de consommation énergétique**
+```http
+POST /api/p3/predict
+```
+
+**Payload (application/json)**:
+```json
+{
+  "BuildingType": "Commercial",
+  "PrimaryPropertyType": "Office",
+  "ZipCode": 98101,
+  "CouncilDistrictCode": 1,
+  "Neighborhood": "Downtown",
+  "Latitude": 47.6062,
+  "Longitude": -122.3321,
+  "YearBuilt": 2005,
+  "NumberofBuildings": 1,
+  "NumberofFloors": 10,
+  "PropertyGFATotal": 50000.0,
+  "PropertyGFAParking": 5000.0,
+  "PropertyGFABuildings": 45000.0,
+  "ListOfAllPropertyUseTypes": "Office",
+  "LargestPropertyUseType": "Office",
+  "LargestPropertyUseTypeGFA": 45000.0,
+  "SecondLargestPropertyUseType": null,
+  "SecondLargestPropertyUseTypeGFA": null,
+  "ThirdLargestPropertyUseType": null,
+  "ThirdLargestPropertyUseTypeGFA": null,
+  "YearsENERGYSTARCertified": 5,
+  "Outlier": "No",
+  "BuildingAge": 19.0,
+  "SurfacePerFloor": 4500.0,
+  "IsMultiUse": false,
+  "LatZone": 47,
+  "LonZone": 122
+}
+```
+
+**Réponse réussie (200)**:
+```json
+{
+  "prediction": 1250.5
+}
+```
+
+---
+
+### 3. **Récupérer l'historique des prédictions**
+```http
+GET /api/p3/history?skip=0&limit=100
+```
+
+**Paramètres de query**:
+- `skip` (optional): Nombre d'enregistrements à ignorer (défaut: 0)
+- `limit` (optional): Nombre maximal d'enregistrements à retourner (défaut: 100)
+
+**Réponse réussie (200)**:
+```json
+{
+  "total": 42,
+  "predictions": [
+    {
+      "id": 1,
+      "prediction": 1250.5,
+      "building_type": "Commercial",
+      "created_at": "2025-12-10T12:30:45.123456"
+    },
+    ...
+  ]
+}
+```
+
+---
+
+### 4. **Récupérer une prédiction spécifique**
+```http
+GET /api/p3/prediction/{prediction_id}
+```
+
+**Réponse réussie (200)**:
+```json
+{
+  "id": 1,
+  "prediction": 1250.5,
+  "building_type": "Commercial",
+  "created_at": "2025-12-10T12:30:45.123456"
+}
+```
+
+---
+
+## 🗄️ Base de Données
+
+### Architecture
+
+La base de données PostgreSQL enregistre **automatiquement** toutes les entrées et sorties du modèle ML.
+
+#### Table: `energy_predictions`
+
+| Colonne | Type | Description |
+|---------|------|-------------|
+| `id` | INTEGER | Clé primaire auto-incrémentée |
+| `building_type` | VARCHAR | Type de bâtiment |
+| `primary_property_type` | VARCHAR | Type de propriété principal |
+| `zip_code` | INTEGER | Code postal |
+| `council_district_code` | INTEGER | Code district conseil |
+| `neighborhood` | VARCHAR | Quartier |
+| `latitude` | FLOAT | Latitude GPS |
+| `longitude` | FLOAT | Longitude GPS |
+| `year_built` | INTEGER | Année de construction |
+| `number_of_buildings` | INTEGER | Nombre de bâtiments |
+| `number_of_floors` | INTEGER | Nombre d'étages |
+| `property_gfa_total` | FLOAT | Surface GFA totale |
+| `property_gfa_parking` | FLOAT | Surface parking GFA |
+| `property_gfa_buildings` | FLOAT | Surface bâtiments GFA |
+| ... | ... | *25+ champs d'entrée* |
+| `prediction` | FLOAT | **Résultat de la prédiction** |
+| `created_at` | TIMESTAMP | Date/heure de création |
+
+### Schéma UML Simplifié
+
+```
+┌─────────────────────────┐
+│   EnergyPrediction      │
+├─────────────────────────┤
+│ id (PK)                 │
+│ building_type           │
+│ primary_property_type   │
+│ zip_code                │
+│ council_district_code   │
+│ neighborhood            │
+│ latitude                │
+│ longitude               │
+│ ... (25+ input fields)  │
+│ prediction (OUTPUT) ⭐   │
+│ created_at (TIMESTAMP)  │
+└─────────────────────────┘
+```
+
+### Gestion de la base de données
+
+**Créer les tables** (automatique au premier démarrage):
+```bash
+uv run python create_db.py
+```
+
+**Réinitialiser la base de données** (⚠️ supprime toutes les données):
+```bash
+uv run python create_db.py drop
+```
+
+**Interroger les données directement**:
+```python
+from app.core.database import SessionLocal
+from app.models import EnergyPrediction
+
+db = SessionLocal()
+predictions = db.query(EnergyPrediction).all()
+for pred in predictions:
+    print(f"ID: {pred.id}, Prédiction: {pred.prediction}, Date: {pred.created_at}")
+db.close()
+```
+
+---
+
+## 🔧 Architecture et Composants
+
+### `app/main.py`
+- **Rôle**: Point d'entrée principal de l'application
+- **Contient**: 
+  - Configuration de l'application FastAPI
+  - Tous les endpoints de l'API
+  - Logique de prédiction et enregistrement en DB
+  - Endpoints de consultation de l'historique
+
+### `app/models.py`
+- **Rôle**: Modèles SQLAlchemy pour la persistance
+- **Contient**: 
+  - `EnergyPrediction`: Modèle ORM représentant la table `energy_predictions`
+  - Tous les champs d'entrée du ML + résultat de prédiction
+
+### `app/core/database.py`
+- **Rôle**: Configuration de la base de données
+- **Contient**: 
+  - Configuration SQLAlchemy + psycopg3
+  - SessionLocal factory
+  - Dépendance `get_db()` pour l'injection dans les endpoints
+
+### `app/schemas/p3_request.py`
+- **Rôle**: Définition des modèles de données
+- **Contient**: 
+  - `EnergyRequest`: Modèle Pydantic pour valider les requêtes de prédiction
+  - `PredictionResponse`: Modèle de réponse pour une prédiction unique
+  - `PredictionHistoryResponse`: Modèle de réponse pour l'historique
+  - 25+ champs pour décrire les caractéristiques d'un bâtiment
+
+### `app/services/p3_model.py`
+- **Rôle**: Service de gestion du modèle ML
+- **Contient**: 
+  - `EnergyModel`: Classe singleton pour charger et utiliser le modèle
+  - Gestion du cache du modèle (chargé une seule fois en mémoire)
+  - Méthode `predict()` pour générer des prédictions
+
+### `models/model_p3.joblib`
+- **Format**: Fichier binaire sérialisé (joblib)
+- **Contenu**: Modèle Random Forest entraîné
+- **Utilisation**: Chargé au moment de la première requête
+
+### `docker-compose.yml`
+- **Rôle**: Configuration de PostgreSQL en conteneur
+- **Contient**: 
+  - Service PostgreSQL 16 Alpine
+  - Configuration des credentials
+  - Volumes persistants pour les données
+  - Health check automatique
+
+### `create_db.py`
+- **Rôle**: Script d'initialisation de la base de données
+- **Utilisation**: 
+  - `uv run python create_db.py` → Crée les tables
+  - `uv run python create_db.py drop` → Supprime les tables
+
+---
+
+## 🧪 Tests
+
+### Exécuter tous les tests
+```bash
+uv run pytest
+```
+
+### Tests unitaires
+```bash
+uv run pytest tests/unit/
+```
+
+### Tests d'intégration
+```bash
+uv run pytest tests/integration/
+```
+
+### Tests avec couverture de code
+```bash
 uv run pytest --cov=app --cov-report=html
-# Ouvrir htmlcov/index.html
-```
-
-### Résumé des Tests
-
-| Type | Fichier | Tests | Coverage |
-|------|---------|-------|----------|
-| **Unitaires** | `test_health.py` | Health check, model loading | ✅ |
-| **Intégration** | `test_p3_dataset.py` | Dataset CRUD, validation | ✅ |
-| **Intégration** | `test_p3_predict.py` | Prédiction, DB persistence | ✅ |
-
-### Configuration Pytest
-
-Via `pyproject.toml`:
-```toml
-[tool.pytest.ini_options]
-addopts = "-v --cov=app --cov-report=term-missing"
-testpaths = ["tests"]
-pythonpath = ["."]
 ```
 
 ---
 
-## 📚 API Documentation
+## 📦 Dépendances principales
 
-### Swagger UI Interactif
+| Paquet | Version | Utilité |
+|--------|---------|---------|
+| `fastapi` | >=0.119.1 | Framework API web |
+| `uvicorn` | >=0.38.0 | Serveur ASGI |
+| `pydantic` | >=2.12.3 | Validation des données |
+| `pandas` | >=2.3.3 | Manipulation des données |
+| `scikit-learn` | >=1.7.2 | Modèle ML et utilitaires |
+| `joblib` | >=1.5.2 | Sérialisation du modèle |
+| `pytest` | >=8.4.2 | Framework de test |
+| `pytest-cov` | >=7.0.0 | Couverture de tests |
+| `sqlalchemy` | >=2.0.44 | ORM pour la base de données |
+| `psycopg[binary]` | >=3.2.11 | Driver PostgreSQL Python |
+| `python-dotenv` | >=1.1.1 | Gestion des variables d'environnement |
 
-Accédez à **http://localhost:8000/docs** pour :
-- Tester les endpoints directement
-- Voir les schémas de requête/réponse
-- Consulter les codes de réponse HTTP
+---
 
-### Schémas Principaux
+## 📝 Conventions de Commit
 
-#### `EnergyRequest` (POST /api/p3/predict)
+Pour maintenir un historique de commits clair et cohérent :
 
-```json
-{
-  "BuildingType": "string (enum)",
-  "PrimaryPropertyType": "string",
-  "ZipCode": "integer",
-  "CouncilDistrictCode": "integer",
-  "Neighborhood": "string",
-  "Latitude": "float",
-  "Longitude": "float",
-  "YearBuilt": "integer",
-  "NumberofFloors": "integer",
-  "PropertyGFABuildings": "float",
-  "SiteEnergyUseIntensity": "float",
-  "SourceEnergyUseIntensity": "float"
-}
-```
+| Type | Description | Exemple |
+|------|-------------|---------|
+| **ADD** | Ajout de fonctionnalité/fichier | `ADD: endpoint de prédiction` |
+| **FIX** | Correction de bug/problème | `FIX: erreur de validation` |
+| **DOCS** | Documentation | `DOCS: mise à jour du README` |
+| **DEL** | Suppression volontaire | `DEL: route obsolète` |
 
-#### `PredictionResponse`
+---
 
-```json
-{
-  "prediction_id": "integer",
-  "predicted_energy_consumption": "float",
-  "building_type": "string",
-  "created_at": "datetime"
-}
+## 🔐 Variables d'environnement
+
+Si nécessaire, créez un fichier `.env` à la racine du projet :
+
+```bash
+# Exemple de configuration
+API_TITLE=Futurisys ML API
+API_VERSION=0.1.0
+LOG_LEVEL=INFO
 ```
 
 ---
 
-## 🌐 Déploiement
+## 📊 Flux de Prédiction
+
+```
+Requête HTTP POST /api/p3/predict
+    ↓
+Validation Pydantic (EnergyRequest)
+    ↓
+Renommage du champ PropertyGFABuildings
+    ↓
+Conversion en DataFrame pandas
+    ↓
+Chargement du modèle (singleton)
+    ↓
+Prédiction ML
+    ↓
+Enregistrement en base de données PostgreSQL ⭐
+    ↓
+Réponse JSON {"prediction": value}
+```
+
+### Enregistrement des données
+
+Chaque prédiction est automatiquement enregistrée dans la table `energy_predictions` avec:
+- ✅ Tous les champs d'entrée
+- ✅ Le résultat de la prédiction
+- ✅ L'horodatage exact (UTC)
+
+---
+
+## 🚀 Déploiement
 
 ### Déploiement sur Hugging Face Spaces
 
-Le projet est **automatiquement déployé** sur [Hugging Face Spaces](https://huggingface.co/spaces/DagueGG/model-machine-learning) à chaque push sur `main`.
+Cette application est prête à être déployée sur [Hugging Face Spaces](https://huggingface.co/spaces).
 
-#### Configuration HF Spaces
+#### Étapes:
 
-1. **Dockerfile:** Spécifie l'image et les commandes de démarrage
-2. **Port:** L'API écoute sur le port `7860` (standard HF Spaces)
-3. **Modèle:** Téléchargé depuis GitHub Releases au démarrage
-4. **Base de données:** SQLite local (persistant via volumes HF)
+1. **Créer un nouvel Space sur Hugging Face**
+   - Aller sur https://huggingface.co/new-space
+   - Sélectionner **Docker** comme runtime
+   - Nommer l'espace: `model-machine-learning`
+   - Rendre public ou privé selon vos besoins
 
-#### Logs de Déploiement
+2. **Connecter votre dépôt GitHub**
+   - Dans les paramètres du Space, activer la synchronisation GitHub
+   - Sélectionner votre dépôt `Model_Machine_Learning`
+   - Sélectionner la branche `main`
 
-Consultables directement dans HF Spaces console.
+3. **Configuration automatique**
+   - HF Spaces détectera automatiquement le `Dockerfile`
+   - Construira et déploiera l'image Docker
+   - L'API sera accessible via `https://huggingface.co/spaces/[username]/model-machine-learning`
 
----
+#### Variables d'environnement
 
-## 🔄 CI/CD Pipeline
-
-### GitHub Actions (`.github/workflows/ci.yml`)
-
-Le pipeline automatise :
-
-```yaml
-name: CI - Tests & Deployment
-
-on:
-  push:
-    branches: [main, "feature/**"]
-  pull_request:
-    branches: [main]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - Checkout du code
-      - Installation de uv
-      - Synchronisation des dépendances (uv sync --frozen)
-      - Exécution des tests avec couverture (pytest)
-      - Upload du modèle vers HF (si main et succès)
-```
-
-### Secrets Requis
-
-Configure dans **Settings > Secrets and variables > Actions** :
-
-| Secret | Description | Où l'obtenir |
-|--------|-------------|--------------|
-| `HF_TOKEN` | Token Hugging Face | [HF Settings](https://huggingface.co/settings/tokens) |
-
-### Environnements
-
-- **feature/\*:** Tests seulement
-- **main:** Tests + Déploiement HF
-
----
-
-## 📊 Versioning & Git
-
-### Convention des Branches
+Laissez `DATABASE_URL` vide pour utiliser SQLite automatiquement sur HF Spaces:
 
 ```
-main                           # Production
-├── feature/project-structure   # Nouvelles features
-├── feature/ci-setup            # Configuration CI/CD
-├── feature/env-setup           # Configuration env
-├── feature/test-protection     # Tests & validation
-└── feature/hf-spaces-deployment # Déploiement HF
+# Database: Auto-switch
+# - Si DATABASE_URL vide → SQLite (HF Spaces)
+# - Si DATABASE_URL défini → PostgreSQL (local)
 ```
 
-### Convention des Commits
+#### Points importants:
 
-```
-TYPE: description détaillée
+- ✅ **Base de données**: SQLite (`/tmp/predictions.db`) - pas besoin de PostgreSQL sur HF
+- ✅ **Port**: 7860 (standard HF Spaces)
+- ✅ **Documentation**: Swagger UI accessible à `/docs`
+- ⚠️ **Données persistantes**: Les prédictions sont sauvegardées tant que le Space tourne
 
-Types:
-  ADD:    Nouvelle fonctionnalité
-  FIX:    Correction de bug
-  UPD:    Mise à jour existante
-  MERGE:  Merge / Résolution de conflit
-  DOCS:   Documentation
-  PERF:   Performance
-  REFACTOR: Restructuration de code
-```
-
-### Tags
-
-- `v0.0.0` - Initiale
-- `v0.1.0` - Version alpha
-- `v1.0.0-model` - Modèle ML v1.0
-
----
-
-## 🔧 Maintenance et Troubleshooting
-
-### Problèmes Courants
-
-#### ❌ `InconsistentVersionWarning` avec scikit-learn
-
-**Cause:** Mismatch entre version de scikit-learn d'entraînement et de déploiement
-
-**Solution:**
-```bash
-# Assurez-vous que pyproject.toml spécifie:
-scikit-learn>=1.5.2,<1.6  # Version d'entraînement
-```
-
-#### ❌ Connexion PostgreSQL échoue
+### Déploiement local avec Docker
 
 ```bash
-# Vérifier le conteneur
-docker-compose ps
+# Builder l'image Docker
+docker build -t model-api .
 
-# Redémarrer
-docker-compose down && docker-compose up -d
-
-# Logs
-docker-compose logs postgres
+# Lancer le conteneur
+docker run -p 8000:7860 model-api
 ```
 
-#### ❌ Tests échouent localement
+### Autres options de déploiement
 
-```bash
-# Vider cache pytest
-rm -rf .pytest_cache/
+Pour un déploiement en production:
 
-# Réinstaller dépendances
-uv sync
-
-# Réexécuter
-uv run pytest -v
-```
-
----
-
-## 📋 Livrables du Projet
-
-Selon les critères OpenClassrooms, ce projet livre :
-
-### ✅ Dépôt Git Structuré
-- ✔️ Code source complet en contrôle de version
-- ✔️ Historique de commits claire (`git log`)
-- ✔️ Branches feature avec convention
-- ✔️ Tags de versioning (v0.0.0, v0.1.0, v1.0.0-model)
-
-### ✅ Dépendances & Configuration
-- ✔️ `pyproject.toml` avec dépendances complètes
-- ✔️ `uv.lock` pour reproductibilité
-- ✔️ `.env.example` avec variables requises
-- ✔️ Dockerfile pour containerisation
-
-### ✅ API Fonctionnelle & Documentée
-- ✔️ Endpoints REST documentés
-- ✔️ Swagger UI interactive
-- ✔️ Déployée sur [HF Spaces](https://huggingface.co/spaces/DagueGG/model-machine-learning)
-- ✔️ Health check & monitoring
-
-### ✅ Tests & Couverture
-- ✔️ Tests unitaires & intégration (Pytest)
-- ✔️ `conftest.py` avec fixtures
-- ✔️ Rapport de couverture (`--cov-report`)
-- ✔️ CI automatisé dans GitHub Actions
-
-### ✅ Base de Données PostgreSQL
-- ✔️ Schéma SQLAlchemy (models.py)
-- ✔️ Tables: `energy_dataset`, `energy_prediction`
-- ✔️ Configuration `docker-compose.yml`
-- ✔️ Script `create_db.py` d'initialisation
-
-### ✅ Pipeline CI/CD
-- ✔️ GitHub Actions (`.github/workflows/ci.yml`)
-- ✔️ Tests automatisés à chaque push
-- ✔️ Déploiement automatisé sur HF Spaces
-- ✔️ Secrets management (HF_TOKEN)
-
-### ✅ Documentation Complète
-- ✔️ README détaillé (ce fichier)
-- ✔️ Instructions d'installation
-- ✔️ Exemples d'utilisation
-- ✔️ Architecture et structure expliquées
-
----
-
-## 🤝 Contribution
-
-Les contributions sont bienvenues ! Merci de :
-
-1. **Fork** le projet
-2. **Créer une branche feature** : `git checkout -b feature/ma-feature`
-3. **Committer** avec convention : `git commit -m "ADD: description"`
-4. **Pusher** : `git push origin feature/ma-feature`
-5. **Créer une Pull Request** sur `main`
+1. **Conteneurisation**: Docker ✅ (configuré)
+2. **Orchestration**: Kubernetes
+3. **CI/CD**: GitHub Actions (configuré dans `.github/workflows/`)
+4. **Monitoring**: Application Performance Monitoring (APM)
+5. **Base de données persistante**: PostgreSQL (remplacer DATABASE_URL)
 
 ---
 
 ## 📄 Licence
 
-Ce projet est sous licence **MIT**. Voir [LICENSE](LICENSE) pour les détails.
+Projet réalisé dans le cadre d'OpenClassroom.
 
 ---
 
-## 📞 Support & Contact
+## 👤 Auteur
 
-- **Issues GitHub:** [DagueG/Model_Machine_Learning/issues](https://github.com/DagueG/Model_Machine_Learning/issues)
-- **HF Space:** [DagueGG/model-machine-learning](https://huggingface.co/spaces/DagueGG/model-machine-learning)
-
----
-
-## 📈 Roadmap Futur
-
-- [ ] Dashboard de monitoring des prédictions
-- [ ] Versioning du modèle ML
-- [ ] Webhooks pour notifications
-- [ ] Rate limiting & authentication
-- [ ] Cache Redis pour optimisation
-- [ ] Logs centralisés (ELK/Grafana)
-
----
-
-**Dernière mise à jour:** Février 2026  
-**Statut:** ✅ Production  
-**Maintenance:** Active
+**DagueG** - [GitHub Profile](https://github.com/DagueG)
